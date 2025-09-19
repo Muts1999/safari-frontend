@@ -4,7 +4,7 @@ const destinations = [
   {
     id: 1,
     title: "Masai Mara National Reserve",
-    image: "Images/maasai-mara.jpg",
+    image: "Images/Maasai-mara.jpg",
     excerpt: "Witness the Great Migration and encounter the Big Five in Kenya’s most famous safari destination.",
     content: `
       The Masai Mara is one of Africa’s greatest safari destinations, located in southwest Kenya.
@@ -19,7 +19,7 @@ const destinations = [
   {
     id: 2,
     title: "Amboseli National Park",
-    image: "Images/amboseli.jpg",
+    image: "Images/Amboseli.jpg",
     excerpt: "Famous for large elephant herds and breathtaking views of Mount Kilimanjaro.",
     content: `
       Amboseli National Park lies at the foot of **Mount Kilimanjaro**, Africa’s highest peak. 
@@ -32,7 +32,7 @@ const destinations = [
   {
     id: 3,
     title: "Serengeti National Park",
-    image: "Images/serengeti.jpg",
+    image: "Images/Serengeti.jpg",
     excerpt: "Vast plains, predators, and the legendary wildebeest migration in Tanzania.",
     content: `
       The Serengeti is Tanzania’s most iconic park, covering nearly **15,000 square kilometers**.
