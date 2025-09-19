@@ -154,76 +154,85 @@
   </section>
 
   <!-- Quote Form -->
-  <section id="quote" class="form-section py-16 container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-10">Request a Free Quote</h2>
-    <form id="quoteForm" class="max-w-3xl mx-auto bg-white shadow rounded-lg p-6 space-y-4">
+<section id="quote" class="form-section py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Request a Free Quote</h2>
+  
+  <!-- Add the action and method -->
+  <form id="quoteForm" 
+        action="https://formspree.io/f/xwpngneg" 
+        method="POST" 
+        class="max-w-3xl mx-auto bg-white shadow rounded-lg p-6 space-y-4">
 
-      <!-- Form fields remain exactly the same -->
-      <div>
-        <label class="block font-semibold">Full Name</label>
-        <input type="text" name="name" required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Email</label>
-        <input type="email" name="email" required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Phone Number & Country Code</label>
-        <input type="text" name="phone" placeholder="+254 7..." required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Country of Residence</label>
-        <input type="text" name="residence" required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Destination</label>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div class="border rounded p-3">
-            <p class="font-semibold">Kenya</p>
-            <label><input type="checkbox" name="destinations" value="Maasai Mara"> Maasai Mara</label><br>
-            <label><input type="checkbox" name="destinations" value="Amboseli"> Amboseli</label><br>
-            <label><input type="checkbox" name="destinations" value="Samburu"> Samburu</label>
-          </div>
-          <div class="border rounded p-3">
-            <p class="font-semibold">Tanzania</p>
-            <label><input type="checkbox" name="destinations" value="Serengeti"> Serengeti</label><br>
-            <label><input type="checkbox" name="destinations" value="Ngorongoro"> Ngorongoro</label><br>
-            <label><input type="checkbox" name="destinations" value="Tarangire"> Tarangire</label>
-          </div>
+    <div>
+      <label class="block font-semibold">Full Name</label>
+      <input type="text" name="name" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Email</label>
+      <input type="email" name="email" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Phone Number & Country Code</label>
+      <input type="text" name="phone" placeholder="+254 7..." required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Country of Residence</label>
+      <input type="text" name="residence" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Destination</label>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="border rounded p-3">
+          <p class="font-semibold">Kenya</p>
+          <label><input type="checkbox" name="destinations" value="Maasai Mara"> Maasai Mara</label><br>
+          <label><input type="checkbox" name="destinations" value="Amboseli"> Amboseli</label><br>
+          <label><input type="checkbox" name="destinations" value="Samburu"> Samburu</label>
+        </div>
+        <div class="border rounded p-3">
+          <p class="font-semibold">Tanzania</p>
+          <label><input type="checkbox" name="destinations" value="Serengeti"> Serengeti</label><br>
+          <label><input type="checkbox" name="destinations" value="Ngorongoro"> Ngorongoro</label><br>
+          <label><input type="checkbox" name="destinations" value="Tarangire"> Tarangire</label>
         </div>
       </div>
-      <div>
-        <label class="block font-semibold">Dates of Travel</label>
-        <input type="date" name="travelDate" required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Number of Travellers</label>
-        <div class="grid md:grid-cols-2 gap-4">
-          <div>
-            <label>Adults</label>
-            <input type="number" name="adults" min="1" required class="w-full border rounded p-2">
-          </div>
-          <div>
-            <label>Children & Ages</label>
-            <input type="text" name="children" placeholder="e.g. 2 (ages 5 & 8)" class="w-full border rounded p-2">
-          </div>
+    </div>
+    <div>
+      <label class="block font-semibold">Dates of Travel</label>
+      <input type="date" name="travelDate" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Number of Travellers</label>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label>Adults</label>
+          <input type="number" name="adults" min="1" required class="w-full border rounded p-2">
+        </div>
+        <div>
+          <label>Children & Ages</label>
+          <input type="text" name="children" placeholder="e.g. 2 (ages 5 & 8)" class="w-full border rounded p-2">
         </div>
       </div>
-      <div>
-        <label class="block font-semibold">Number of Days</label>
-        <input type="number" name="days" required class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Budget (USD)</label>
-        <input type="text" name="budget" placeholder="e.g. $3000" class="w-full border rounded p-2">
-      </div>
-      <div>
-        <label class="block font-semibold">Extra Requests</label>
-        <textarea name="requests" rows="4" placeholder="Any special requirements or notes..." class="w-full border rounded p-2"></textarea>
-      </div>
-      <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded-full hover:bg-yellow-700">Submit</button>
-    </form>
-  </section>
+    </div>
+    <div>
+      <label class="block font-semibold">Number of Days</label>
+      <input type="number" name="days" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Budget (USD)</label>
+      <input type="text" name="budget" placeholder="e.g. $3000" class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Extra Requests</label>
+      <textarea name="requests" rows="4" placeholder="Any special requirements or notes..." class="w-full border rounded p-2"></textarea>
+    </div>
+    
+    <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded-full hover:bg-yellow-700">Submit</button>
+    
+    <!-- Optional: redirect after submit -->
+    <input type="hidden" name="_next" value="thank-you.html">
+  </form>
+</section>
+
 
   <!-- Footer -->
 <footer class="bg-gray-800 text-white text-center py-6">
