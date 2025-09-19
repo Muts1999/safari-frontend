@@ -249,32 +249,6 @@
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-    // Handle quote form submission
-    document.getElementById('quoteForm').addEventListener('submit', async function(e){
-      e.preventDefault();
-      const formData = new FormData(this);
-      const data = {};
-      formData.forEach((v,k) => {
-        if(!data[k]) data[k] = v;
-        else {
-          if(!Array.isArray(data[k])) data[k] = [data[k]];
-          data[k].push(v);
-        }
-      });
-
-      const response = await fetch('http://localhost:5000/send-email', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(data)
-      });
-
-      if(response.ok){
-        alert('Your request has been sent successfully!');
-        this.reset();
-      }else{
-        alert('Something went wrong. Please try again.');
-      }
-    });
   </script>
 </body>
 </html>
