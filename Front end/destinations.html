@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safari Destinations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      padding-top: 80px; /* offset for fixed navbar */
+    }
+  </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</head>
+<body class="font-sans text-gray-800">
+
+  <!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <div class="flex items-center space-x-2">
+      <img src="images/logo.png" alt="Logo" class="h-10 w-auto">
+      <span class="text-xl font-bold text-yellow-700">Safari Adventures</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html#home" class="hover:text-yellow-600">Home</a>
+      <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
+      <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
+      <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
+      <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
+    <a href="index.html#home" class="block hover:text-yellow-600">Home</a>
+    <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
+    <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
+    <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
+    <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
+  </div>
+</header>
+
+    <!-- Hero Section -->
+<section class="h-64 flex items-center justify-center text-white relative" 
+         style="background: url('images/Serengeti.jpg') no-repeat center center/cover;">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- optional overlay for text contrast -->
+  <h1 class="text-4xl font-bold relative z-10">Our Safari Destinations</h1>
+</section>
+
+  <!-- Destination Cards -->
+  <section class="py-16 container mx-auto px-4">
+    <div id="destinations-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="destinations.js"></script>
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Populate destinations dynamically
+    const container = document.getElementById('destinations-list');
+    destinations.forEach(dest => {
+      const div = document.createElement('div');
+      div.className = "rounded-lg shadow hover:shadow-lg bg-white overflow-hidden";
+      div.innerHTML = `
+        <img src="${dest.image}" alt="${dest.title}" class="w-full h-48 object-cover">
+        <div class="p-6">
+          <h2 class="font-bold text-2xl mb-2">${dest.title}</h2>
+          <p class="text-gray-600">${dest.excerpt}</p>
+          <a href="destination-template.html?id=${dest.id}" class="text-yellow-600 font-semibold hover:underline mt-3 inline-block">Read more</a>
+        </div>
+      `;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>

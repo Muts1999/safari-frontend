@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms & Conditions - Safari Adventures</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { padding-top: 80px; }
+  </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+</head>
+<body class="font-sans text-gray-800">
+
+   <!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <div class="flex items-center space-x-2">
+      <img src="images/logo.png" alt="Logo" class="h-10 w-auto">
+      <span class="text-xl font-bold text-yellow-700">Safari Adventures</span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6">
+      <a href="index.html#home" class="hover:text-yellow-600">Home</a>
+      <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
+      <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
+      <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
+      <a href="plan-safari.html" class="hover:text-yellow-600">Plan My Safari</a>
+      <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
+    <a href="index.html#home" class="block hover:text-yellow-600">Home</a>
+    <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
+    <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
+    <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
+    <a href="plan-safari.html" class="block hover:text-yellow-600">Plan My Safari</a>
+    <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
+  </div>
+</header>
+
+  <!-- Terms & Conditions Content -->
+  <section class="container mx-auto px-4 py-16">
+    <h1 class="text-4xl font-bold mb-6">Terms & Conditions</h1>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">1. Bookings</h2>
+    <p>All safari bookings are subject to availability and confirmation. A deposit may be required to secure your reservation.</p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Payments</h2>
+    <p>Final payment is required before the start of your safari. Cancellation policies will apply as outlined in your booking confirmation.</p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">3. Responsibilities</h2>
+    <p>Safari Adventures ensures reliable operators and services but is not responsible for issues outside our control, such as weather, flight delays, or government regulations.</p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Liability</h2>
+    <p>Travel involves risks. We recommend all travelers have valid travel insurance. Safari Adventures is not liable for loss, injury, or damages during the safari.</p>
+
+    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Governing Law</h2>
+    <p>These Terms are governed by the laws of Kenya.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white text-center py-6">
+    <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+    <div class="mt-2 space-x-4">
+      <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
+      <a href="terms.html" class="text-yellow-400 hover:underline">Terms & Conditions</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
