@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions - Safari Adventures</title>
+  <title>Tips & Blog - Safari Adventures</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { padding-top: 80px; }
+    html { scroll-behavior: smooth; }
+    body { padding-top: 80px; } /* offset for fixed navbar */
   </style>
 
 <!-- Google Analytics -->
@@ -26,11 +26,11 @@
 </head>
 <body class="font-sans text-gray-800">
 
-   <!-- Navbar -->
+  <!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
     <div class="flex items-center space-x-2">
-      <img src="images/logo.png" alt="Logo" class="h-10 w-auto">
+      <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
       <span class="text-xl font-bold text-yellow-700">Safari Adventures</span>
     </div>
 
@@ -40,7 +40,6 @@
       <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
       <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
       <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
-      <a href="plan-safari.html" class="hover:text-yellow-600">Plan My Safari</a>
       <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
     </nav>
 
@@ -54,46 +53,53 @@
     <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
     <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
     <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
-    <a href="plan-safari.html" class="block hover:text-yellow-600">Plan My Safari</a>
     <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
   </div>
 </header>
 
-  <!-- Terms & Conditions Content -->
-  <section class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl font-bold mb-6">Terms & Conditions</h1>
+  <!-- Hero Section -->
+<section class="h-64 flex items-center justify-center text-white relative" 
+         style="background: url('Images/Mara.jpg') no-repeat center center/cover;">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- optional overlay for text contrast -->
+  <h1 class="text-4xl font-bold relative z-10">Tips & Blog</h1>
+</section>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">1. Bookings</h2>
-    <p>All safari bookings are subject to availability and confirmation. A deposit may be required to secure your reservation.</p>
-
-    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Payments</h2>
-    <p>Final payment is required before the start of your safari. Cancellation policies will apply as outlined in your booking confirmation.</p>
-
-    <h2 class="text-2xl font-semibold mt-6 mb-2">3. Responsibilities</h2>
-    <p>Safari Adventures ensures reliable operators and services but is not responsible for issues outside our control, such as weather, flight delays, or government regulations.</p>
-
-    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Liability</h2>
-    <p>Travel involves risks. We recommend all travelers have valid travel insurance. Safari Adventures is not liable for loss, injury, or damages during the safari.</p>
-
-    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Governing Law</h2>
-    <p>These Terms are governed by the laws of Kenya.</p>
+  <!-- Tips & Blog List -->
+  <section class="py-16 container mx-auto px-4">
+    <div id="blog-posts" class="grid md:grid-cols-3 gap-8"></div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white text-center py-6">
     <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
-    <div class="mt-2 space-x-4">
-      <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
-      <a href="terms.html" class="text-yellow-400 hover:underline">Terms & Conditions</a>
-    </div>
   </footer>
 
+  <!-- Scripts -->
+  <script src="blogs.js"></script>
   <script>
+    // Mobile menu toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
+
+    // Populate Tips & Blogs dynamically from blogs.js
+    const container = document.getElementById('blog-posts');
+    if (typeof blogs !== "undefined" && blogs.length > 0) {
+      blogs.forEach(item => {
+        const div = document.createElement('div');
+        div.className = "rounded-lg shadow hover:shadow-lg overflow-hidden bg-white transition hover:scale-105";
+        div.innerHTML = `
+          <h3 class="font-bold text-xl p-4">${item.title}</h3>
+          <p class="px-4 pb-4">${item.excerpt}</p>
+          <a href="blog-template.html?id=${item.id}" class="block p-4 text-yellow-600 font-semibold hover:underline">Read More</a>
+        `;
+        container.appendChild(div);
+      });
+    } else {
+      container.innerHTML = "<p class='text-center col-span-3'>No blog posts available at the moment.</p>";
+    }
   </script>
 </body>
 </html>
