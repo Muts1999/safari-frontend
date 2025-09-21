@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tips & Blog - Safari Adventures</title>
+  <title>Tips & Blog - Safari Diaries by Sammy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
@@ -40,19 +40,26 @@
       background-color: var(--accent-color);
       color: white;
     }
+
+    /* Filter buttons */
+    .filter-btn {
+      border: 1px solid var(--accent-color);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover {
+      background-color: var(--accent-color);
+      color: white;
+    }
+
+    .filter-btn.active {
+      background-color: var(--accent-color);
+      color: white;
+    }
   </style>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
-  <!-- Google reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="font-sans">
 
@@ -64,7 +71,6 @@
           <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
         </a>
       </div>
-
       <!-- Desktop Menu -->
       <nav class="hidden md:flex space-x-6">
         <a href="index.html#home" class="hover:theme-accent">Home</a>
@@ -73,11 +79,9 @@
         <a href="tips-blog.html" class="hover:theme-accent">Tips & Blog</a>
         <a href="index.html#quote" class="theme-btn px-4 py-2 rounded-full hover:opacity-90">Get a Quote</a>
       </nav>
-
       <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
     </div>
-
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
       <a href="index.html#home" class="block hover:theme-accent">Home</a>
@@ -95,14 +99,24 @@
     <h1 class="text-4xl font-bold relative z-10">Tips & Blog</h1>
   </section>
 
-  <!-- Tips & Blog List -->
+  <!-- Filter Buttons -->
+  <section class="container mx-auto px-4 mt-8">
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button class="filter-btn active" data-category="all">All</button>
+      <button class="filter-btn" data-category="destinations">Destinations</button>
+      <button class="filter-btn" data-category="tips">Tips</button>
+      <button class="filter-btn" data-category="guides">Guides</button>
+    </div>
+  </section>
+
+  <!-- Blog List -->
   <section class="py-16 container mx-auto px-4">
     <div id="blog-posts" class="grid md:grid-cols-3 gap-8"></div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white text-center py-6">
-    <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+    <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
   </footer>
 
   <!-- Theme Toggle Button -->
@@ -119,23 +133,6 @@
     menuBtn.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
     });
-
-    // Populate Tips & Blogs dynamically from blogs.js
-    const container = document.getElementById('blog-posts');
-    if (typeof blogs !== "undefined" && blogs.length > 0) {
-      blogs.forEach(item => {
-        const div = document.createElement('div');
-        div.className = "rounded-lg shadow hover:shadow-lg overflow-hidden bg-white transition hover:scale-105";
-        div.innerHTML = `
-          <h3 class="font-bold text-xl p-4">${item.title}</h3>
-          <p class="px-4 pb-4">${item.excerpt}</p>
-          <a href="blog-template.html?id=${item.id}" class="block p-4 theme-accent font-semibold hover:underline">Read More</a>
-        `;
-        container.appendChild(div);
-      });
-    } else {
-      container.innerHTML = "<p class='text-center col-span-3'>No blog posts available at the moment.</p>";
-    }
 
     // Theme toggle
     const themes = ["default", "nature", "dark"];

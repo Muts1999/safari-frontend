@@ -1,77 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Safari Adventures</title>
+  <title>Blog - Safari Diaries by Sammy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { padding-top: 80px; } /* offset for fixed navbar */
+    body {
+      padding-top: 80px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* THEME VARIABLES */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --accent-color: #d4af37;
+    }
+
+    [data-theme="nature"] {
+      --bg-color: #faf3e0;
+      --text-color: #3b2f2f;
+      --accent-color: #2f5233;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #e5e7eb;
+      --accent-color: #fbbf24;
+    }
+
+    .theme-accent {
+      color: var(--accent-color);
+    }
+
+    .theme-btn {
+      background-color: var(--accent-color);
+      color: white;
+    }
   </style>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
-  <!-- Google reCAPTCHA -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body class="font-sans text-gray-800 min-h-screen flex flex-col">
+<body class="font-sans flex flex-col min-h-screen">
 
   <!-- Navbar -->
   <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <!-- Logo -->
-      <a href="index.html#home">
-        <img src="Images/logo.png" alt="Logo" class="h-10 w-auto hover:scale-105 transition-transform">
-      </a>
-
+      <div class="flex items-center space-x-2">
+        <a href="index.html#home">
+          <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+        </a>
+      </div>
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-6 font-semibold">
-        <a href="index.html#home" class="hover:text-yellow-600 transition">Home</a>
-        <a href="destinations.html" class="hover:text-yellow-600 transition">Destinations</a>
-        <a href="index.html#faq" class="hover:text-yellow-600 transition">FAQ</a>
-        <a href="tips-blog.html" class="hover:text-yellow-600 transition">Tips & Blog</a>
-        <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700 shadow transition">Get a Quote</a>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html#home" class="hover:theme-accent">Home</a>
+        <a href="destinations.html" class="hover:theme-accent">Destinations</a>
+        <a href="index.html#faq" class="hover:theme-accent">FAQ</a>
+        <a href="tips-blog.html" class="hover:theme-accent font-bold">Tips & Blog</a>
+        <a href="index.html#quote" class="theme-btn px-4 py-2 rounded-full hover:opacity-90">Get a Quote</a>
       </nav>
-
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">&#9776;</button>
+      <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
     </div>
-
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-      <a href="index.html#home" class="block hover:text-yellow-600 font-semibold">Home</a>
-      <a href="destinations.html" class="block hover:text-yellow-600 font-semibold">Destinations</a>
-      <a href="index.html#faq" class="block hover:text-yellow-600 font-semibold">FAQ</a>
-      <a href="tips-blog.html" class="block hover:text-yellow-600 font-semibold">Tips & Blog</a>
-      <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700 shadow font-semibold">Get a Quote</a>
+      <a href="index.html#home" class="block hover:theme-accent">Home</a>
+      <a href="destinations.html" class="block hover:theme-accent">Destinations</a>
+      <a href="index.html#faq" class="block hover:theme-accent">FAQ</a>
+      <a href="tips-blog.html" class="block hover:theme-accent font-bold">Tips & Blog</a>
+      <a href="index.html#quote" class="block theme-btn px-4 py-2 rounded-full text-center hover:opacity-90">Get a Quote</a>
     </div>
   </header>
 
+  <!-- Hero Section -->
+  <section class="h-64 flex items-center justify-center text-white relative" 
+           style="background: url('Images/Mara.jpg') no-repeat center center/cover;">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <h1 class="text-4xl font-bold relative z-10" id="blog-hero-title">Loading...</h1>
+  </section>
+
   <!-- Blog Content -->
-  <section class="py-20 container mx-auto px-4 flex-grow" id="blog-content">
-    <div class="max-w-3xl mx-auto text-gray-700 bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
-      <h1 class="text-3xl font-bold mb-6 text-center text-gray-900" id="blog-title">Loading...</h1>
-      <div class="prose max-w-none mb-8 text-gray-700 leading-relaxed" id="blog-body">
-        <p>Please wait while the content loads.</p>
+  <section class="py-16 container mx-auto px-4 flex-grow">
+    <div class="max-w-3xl mx-auto text-gray-700">
+      <div id="blog-body" class="prose max-w-none mb-8">
+        <p>Loading content...</p>
       </div>
       <div class="text-center">
-        <a href="tips-blog.html" class="inline-block text-yellow-600 font-semibold hover:underline transition">← Back to Tips & Blog</a>
+        <a href="tips-blog.html" class="text-yellow-600 font-semibold hover:underline">← Back to Tips & Blog</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-white text-center py-6 mt-auto">
-    <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+    <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
   </footer>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow">
+    Change Theme
+  </button>
 
   <!-- Scripts -->
   <script src="blogs.js"></script>
@@ -83,21 +112,31 @@
       mobileMenu.classList.toggle('hidden');
     });
 
-    // Get blog id from URL
+    // Theme toggle
+    const themes = ["default", "nature", "dark"];
+    let current = 0;
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      current = (current + 1) % themes.length;
+      if (themes[current] === "default") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", themes[current]);
+      }
+    });
+
+    // Load blog content based on id
     const params = new URLSearchParams(window.location.search);
     const blogId = params.get('id');
-
-    const blogTitle = document.getElementById('blog-title');
-    const blogBody = document.getElementById('blog-body');
-
-    // Find the blog by id (convert to string for safety)
     const blog = blogs.find(b => String(b.id) === String(blogId));
 
-    if(blog){
-      blogTitle.textContent = blog.title;
-      blogBody.innerHTML = blog.content; // full blog content
+    const blogHeroTitle = document.getElementById('blog-hero-title');
+    const blogBody = document.getElementById('blog-body');
+
+    if (blog) {
+      blogHeroTitle.textContent = blog.title;
+      blogBody.innerHTML = blog.content;
     } else {
-      blogTitle.textContent = "Blog not found";
+      blogHeroTitle.textContent = "Blog Not Found";
       blogBody.innerHTML = "<p>Sorry, the blog you are looking for does not exist.</p>";
     }
   </script>
