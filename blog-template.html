@@ -10,38 +10,35 @@
     body { padding-top: 80px; } /* offset for fixed navbar */
   </style>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-<!-- Google reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body class="font-sans text-gray-800 min-h-screen flex flex-col">
 
   <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-2">
-     <a href="index.html#home">
-  <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
-</a>
-    </div>
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <!-- Logo -->
+      <a href="index.html#home">
+        <img src="Images/logo.png" alt="Logo" class="h-10 w-auto hover:scale-105 transition-transform">
+      </a>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html#home" class="hover:text-yellow-600 font-bold">Home</a>
-        <a href="index.html#destinations" class="hover:text-yellow-600 font-bold">Destinations</a>
-        <a href="index.html#faq" class="hover:text-yellow-600 font-bold">FAQ</a>
-        <a href="tips-blog.html" class="hover:text-yellow-600 font-bold">Tips & Blog</a>
-        <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700 font-bold">Get a Quote</a>
+      <nav class="hidden md:flex space-x-6 font-semibold">
+        <a href="index.html#home" class="hover:text-yellow-600 transition">Home</a>
+        <a href="destinations.html" class="hover:text-yellow-600 transition">Destinations</a>
+        <a href="index.html#faq" class="hover:text-yellow-600 transition">FAQ</a>
+        <a href="tips-blog.html" class="hover:text-yellow-600 transition">Tips & Blog</a>
+        <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700 shadow transition">Get a Quote</a>
       </nav>
 
       <!-- Mobile Menu Button -->
@@ -50,23 +47,23 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-      <a href="index.html#home" class="block hover:text-yellow-600 font-bold">Home</a>
-      <a href="index.html#destinations" class="block hover:text-yellow-600 font-bold">Destinations</a>
-      <a href="index.html#faq" class="block hover:text-yellow-600 font-bold">FAQ</a>
-      <a href="tips-blog.html" class="block hover:text-yellow-600 font-bold">Tips & Blog</a>
-      <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700 font-bold">Get a Quote</a>
+      <a href="index.html#home" class="block hover:text-yellow-600 font-semibold">Home</a>
+      <a href="destinations.html" class="block hover:text-yellow-600 font-semibold">Destinations</a>
+      <a href="index.html#faq" class="block hover:text-yellow-600 font-semibold">FAQ</a>
+      <a href="tips-blog.html" class="block hover:text-yellow-600 font-semibold">Tips & Blog</a>
+      <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700 shadow font-semibold">Get a Quote</a>
     </div>
   </header>
 
   <!-- Blog Content -->
-  <section class="py-16 container mx-auto px-4 flex-grow" id="blog-content">
-    <div class="max-w-3xl mx-auto text-gray-700">
-      <h1 class="text-3xl font-bold mb-6 text-center" id="blog-title">Loading...</h1>
-      <div class="prose max-w-none mb-8" id="blog-body">
+  <section class="py-20 container mx-auto px-4 flex-grow" id="blog-content">
+    <div class="max-w-3xl mx-auto text-gray-700 bg-white rounded-lg shadow p-8 hover:shadow-lg transition">
+      <h1 class="text-3xl font-bold mb-6 text-center text-gray-900" id="blog-title">Loading...</h1>
+      <div class="prose max-w-none mb-8 text-gray-700 leading-relaxed" id="blog-body">
         <p>Please wait while the content loads.</p>
       </div>
       <div class="text-center">
-        <a href="tips-blog.html" class="text-yellow-600 font-semibold hover:underline">Back to Tips & Blog</a>
+        <a href="tips-blog.html" class="inline-block text-yellow-600 font-semibold hover:underline transition">← Back to Tips & Blog</a>
       </div>
     </div>
   </section>
@@ -98,7 +95,7 @@
 
     if(blog){
       blogTitle.textContent = blog.title;
-      blogBody.innerHTML = blog.content; // Use content for full blog
+      blogBody.innerHTML = blog.content; // full blog content
     } else {
       blogTitle.textContent = "Blog not found";
       blogBody.innerHTML = "<p>Sorry, the blog you are looking for does not exist.</p>";

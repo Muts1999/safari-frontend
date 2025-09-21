@@ -1,0 +1,101 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;800&display=swap');
+
+body {
+  font-family: 'Lato', sans-serif;
+  color: #1C1C1C;
+  background-color: #FAF9F6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: #1C1C1C;
+}
+
+/* Navbar */
+header {
+  background-color: rgba(28, 28, 28, 0.85);
+  backdrop-filter: blur(10px);
+}
+
+header a {
+  font-weight: 600;
+  color: #FAF9F6;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #C5A572;
+}
+
+/* Buttons */
+.btn-gold {
+  background: linear-gradient(135deg, #C5A572, #a88450);
+  color: #fff;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #d3b47f, #b38a55);
+  box-shadow: 0 4px 15px rgba(197, 165, 114, 0.4);
+}
+
+/* Hero */
+#home {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+#home h1, #home p {
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Section Titles */
+section h2 {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 1rem auto 0;
+  background-color: #C5A572;
+}
+
+/* Forms */
+form input, form textarea, form select {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  transition: border-color 0.3s;
+}
+
+form input:focus, form textarea:focus {
+  border-color: #C5A572;
+  outline: none;
+  box-shadow: 0 0 5px rgba(197, 165, 114, 0.3);
+}
+
+/* Footer */
+footer {
+  background: #1C1C1C;
+  color: #FAF9F6;
+}
+
+footer a {
+  color: #C5A572;
+}
+
+footer a:hover {
+  color: #fff;
+}

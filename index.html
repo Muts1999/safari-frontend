@@ -4,46 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safari Adventures</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    html { 
-      scroll-behavior: smooth; 
-      scroll-padding-top: 80px; /* offset for fixed navbar when using anchor links */
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { 
-      padding-top: 80px; /* offset for fixed navbar */ 
+      padding-top: 80px; 
+      font-family: 'Lato', sans-serif; 
+      background: #FAF9F6; 
+      color: #1C1C1C; 
     }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* Luxury Button */
+    .btn-gold {
+      background: linear-gradient(135deg, #C5A572, #8C6A43);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D4AF37, #A9865C);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
+
+    /* Luxury Card */
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    /* Hero Animations */
+    @keyframes zoomIn {
+      from { transform: scale(1.1); }
+      to { transform: scale(1); }
+    }
+    .animate-zoom { animation: zoomIn 5s ease forwards; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
   </style>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 </head>
-<body class="font-sans text-gray-800">
+<body>
 
  <!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-2">
-      <a href="index.html#home">
-  <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
-</a>
-
-      </div>
+    <a href="index.html#home">
+      <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+    </a>
 
     <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html#home" class="hover:text-yellow-600">Home</a>
-      <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
-      <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
-      <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
-      <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
+    <nav class="hidden md:flex space-x-6 font-medium">
+      <a href="index.html#home" class="hover:text-yellow-700">Home</a>
+      <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+      <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
+      <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#quote" class="btn-gold">Get a Quote</a>
     </nav>
 
     <!-- Mobile Menu Button -->
@@ -52,118 +95,116 @@
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-    <a href="index.html#home" class="block hover:text-yellow-600">Home</a>
-    <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
-    <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
-    <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
-    <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
+    <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
+    <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
+    <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
+    <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+    <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
   </div>
 </header>
 
 <!-- Hero Section -->
-<section id="home" class="h-screen flex items-center justify-center text-center text-white relative" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
-  
-  <!-- Fullscreen Dark Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+<section id="home" class="h-screen flex items-center justify-center text-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
 
   <!-- Content -->
-  <div class="relative z-10 p-8">
-    <h1 class="text-4xl md:text-6xl font-bold">Discover Africa's Wonders</h1>
-    <p class="mt-4 text-lg md:text-xl">Get personalized tour quotes from Africa's top-rated operators. Your dream safari is just a form away</p>
-    <a href="#quote" class="mt-6 inline-block bg-yellow-600 px-6 py-3 rounded-full font-semibold hover:bg-yellow-700">Request Free Quote</a>
+  <div class="relative z-10 animate-fadeIn">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover Africa's Wonders</h1>
+    <p class="text-lg md:text-2xl mb-6">Get personalized tour quotes from Africa's top-rated operators. Your dream safari is just a form away</p>
+    <a href="#quote" class="btn-gold">Request Free Quote</a>
   </div>
 </section>
 
 <!-- Why Choose Safari Diaries -->
-  <section id="why" class="py-16 container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-10">Why Choose Safari Diaries by Sammy</h2>
+<section id="why" class="py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Why Choose Safari Diaries by Sammy</h2>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Trusted Operators</h3>
+      <p>We partner with only the most reliable and experienced safari operators, ensuring safety and quality every step of the way.</p>
+    </div>
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Best Prices</h3>
+      <p>Get unbeatable value for your safari adventure without compromising comfort or experience.</p>
+    </div>
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Dedicated Support</h3>
+      <p>Our team is available 24/7 to assist you before, during, and after your trip.</p>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="how" class="py-16 px-4 bg-[#F5F2EB]">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">How It Works</h2>
     <div class="grid md:grid-cols-3 gap-8 text-center">
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-        <h3 class="font-bold text-xl mb-2">Trusted Operators</h3>
-        <p>We partner with only the most reliable and experienced safari operators, ensuring safety and quality every step of the way.</p>
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">1️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Fill the Quote Form</h3>
+        <p>Provide your travel details, preferred destinations, and special requests using our simple form.</p>
       </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-        <h3 class="font-bold text-xl mb-2">Best Prices</h3>
-        <p>Get unbeatable value for your safari adventure without compromising comfort or experience.</p>
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">2️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Receive a Quote</h3>
+        <p>Our safari experts will prepare a tailored package and send you a detailed quote.</p>
       </div>
-      <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-        <h3 class="font-bold text-xl mb-2">Dedicated Support</h3>
-        <p>Our team is available 24/7 to assist you before, during, and after your trip.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section id="how" class="bg-gray-100 py-16 px-4">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">How It Works</h2>
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <div class="text-yellow-600 text-4xl mb-4">1️⃣</div>
-          <h3 class="font-bold text-xl mb-2">Fill the Quote Form</h3>
-          <p>Provide your travel details, preferred destinations, and special requests using our simple form.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <div class="text-yellow-600 text-4xl mb-4">2️⃣</div>
-          <h3 class="font-bold text-xl mb-2">Receive a Quote</h3>
-          <p>Our safari experts will prepare a tailored package and send you a detailed quote.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <div class="text-yellow-600 text-4xl mb-4">3️⃣</div>
-          <h3 class="font-bold text-xl mb-2">Choose & Travel</h3>
-          <p>Pick the safari package that excites you most, confirm your booking, and enjoy your adventure.</p>
-        </div>
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">3️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Choose & Travel</h3>
+        <p>Pick the safari package that excites you most, confirm your booking, and enjoy your adventure.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Traveler Recommendations -->
-  <section id="recommendations" class="py-16 bg-gray-100 px-4">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Traveler Recommendations</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <p>"The safari was unforgettable! The guides were knowledgeable and friendly."</p>
-          <h4 class="mt-4 font-bold">– Alice, UK</h4>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <p>"Amazing wildlife experience! Highly recommend Safari Adventures by Sammy."</p>
-          <h4 class="mt-4 font-bold">– John, USA</h4>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow hover:shadow-lg">
-          <p>"From planning to safari, everything was perfect. Truly a once-in-a-lifetime experience."</p>
-          <h4 class="mt-4 font-bold">– Maria, Germany</h4>
-        </div>
+<!-- Traveler Recommendations -->
+<section id="recommendations" class="py-16 bg-[#FAF9F6] px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Traveler Recommendations</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-6">
+        <p>"The safari was unforgettable! The guides were knowledgeable and friendly."</p>
+        <h4 class="mt-4 font-bold">– Alice, UK</h4>
+      </div>
+      <div class="card p-6">
+        <p>"Amazing wildlife experience! Highly recommend Safari Adventures by Sammy."</p>
+        <h4 class="mt-4 font-bold">– John, USA</h4>
+      </div>
+      <div class="card p-6">
+        <p>"From planning to safari, everything was perfect. Truly a once-in-a-lifetime experience."</p>
+        <h4 class="mt-4 font-bold">– Maria, Germany</h4>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-
-  <!-- FAQ -->
-  <section id="faq" class="bg-gray-100 py-16 px-4">
-    <div class="container mx-auto">
-      <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
-      <div class="space-y-6">
-        <div>
-          <h3 class="font-semibold">When is the best time to visit Kenya & Tanzania?</h3>
-          <p>June to October offers the best wildlife viewing, especially during the Great Migration.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold">Do I need a visa?</h3>
-          <p>Yes, most visitors require a visa. Please check your country’s requirements before travel.</p>
-        </div>
+<!-- FAQ -->
+<section id="faq" class="bg-[#F5F2EB] py-16 px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+    <div class="space-y-6 max-w-3xl mx-auto">
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">When is the best time to visit Kenya & Tanzania?</h3>
+        <p>June to October offers the best wildlife viewing, especially during the Great Migration.</p>
+      </div>
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">Do I need a visa?</h3>
+        <p>Yes, most visitors require a visa. Please check your country’s requirements before travel.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Quote Form -->
+<!-- Quote Form -->
 <section id="quote" class="form-section py-16 container mx-auto px-4">
   <h2 class="text-3xl font-bold text-center mb-10">Request a Free Quote</h2>
   
   <form id="quoteForm" 
         action="https://formspree.io/f/xwpngneg" 
         method="POST" 
-        class="max-w-3xl mx-auto bg-white shadow rounded-lg p-6 space-y-4">
+        class="card max-w-3xl mx-auto p-6 space-y-4">
 
     <div>
       <label class="block font-semibold">Full Name</label>
@@ -228,16 +269,13 @@
       <textarea name="requests" rows="4" placeholder="Any special requirements or notes..." class="w-full border rounded p-2"></textarea>
     </div>
     
-    <button type="submit" class="bg-yellow-600 text-white px-6 py-2 rounded-full hover:bg-yellow-700">Submit</button>
-    
-    <!-- Redirect after submit -->
-   <input type="hidden" name="_next" value="https://muts1999.github.io/safari-frontend/thank-you.html">
+    <button type="submit" class="btn-gold">Submit</button>
+    <input type="hidden" name="_next" value="https://muts1999.github.io/safari-frontend/thank-you.html">
   </form>
 </section>
 
-
-  <!-- Footer -->
-<footer class="bg-gray-800 text-white text-center py-6">
+<!-- Footer -->
+<footer class="bg-[#1C1C1C] text-white text-center py-6">
   <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
   <div class="mt-2 space-x-4">
     <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
@@ -245,13 +283,12 @@
   </div>
 </footer>
 
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+</script>
 
-  <script>
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
-
-  </script>
 </body>
 </html>

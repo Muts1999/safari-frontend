@@ -7,63 +7,93 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; }
-    body { padding-top: 80px; } /* offset for fixed navbar */
+    body {
+      padding-top: 80px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    /* THEME VARIABLES */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #1f2937;
+      --accent-color: #d4af37;
+    }
+
+    [data-theme="nature"] {
+      --bg-color: #faf3e0;
+      --text-color: #3b2f2f;
+      --accent-color: #2f5233;
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #1a1a1a;
+      --text-color: #e5e7eb;
+      --accent-color: #fbbf24;
+    }
+
+    .theme-accent {
+      color: var(--accent-color);
+    }
+
+    .theme-btn {
+      background-color: var(--accent-color);
+      color: white;
+    }
   </style>
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
 
-<!-- Google reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-
+  <!-- Google reCAPTCHA -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body class="font-sans text-gray-800">
+<body class="font-sans">
 
   <!-- Navbar -->
-<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
-  <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-2">
-      <a href="index.html#home">
-  <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
-</a>
+  <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="container mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-2">
+        <a href="index.html#home">
+          <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+        </a>
+      </div>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html#home" class="hover:theme-accent">Home</a>
+        <a href="destinations.html" class="hover:theme-accent">Destinations</a>
+        <a href="index.html#faq" class="hover:theme-accent">FAQ</a>
+        <a href="tips-blog.html" class="hover:theme-accent">Tips & Blog</a>
+        <a href="index.html#quote" class="theme-btn px-4 py-2 rounded-full hover:opacity-90">Get a Quote</a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
     </div>
 
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html#home" class="hover:text-yellow-600">Home</a>
-      <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
-      <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
-      <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
-      <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
-    </nav>
-
-    <!-- Mobile Menu Button -->
-    <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-    <a href="index.html#home" class="block hover:text-yellow-600">Home</a>
-    <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
-    <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
-    <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
-    <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
-  </div>
-</header>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
+      <a href="index.html#home" class="block hover:theme-accent">Home</a>
+      <a href="destinations.html" class="block hover:theme-accent">Destinations</a>
+      <a href="index.html#faq" class="block hover:theme-accent">FAQ</a>
+      <a href="tips-blog.html" class="block hover:theme-accent">Tips & Blog</a>
+      <a href="index.html#quote" class="block theme-btn px-4 py-2 rounded-full text-center hover:opacity-90">Get a Quote</a>
+    </div>
+  </header>
 
   <!-- Hero Section -->
-<section class="h-64 flex items-center justify-center text-white relative" 
-         style="background: url('Images/Mara.jpg') no-repeat center center/cover;">
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div> <!-- optional overlay for text contrast -->
-  <h1 class="text-4xl font-bold relative z-10">Tips & Blog</h1>
-</section>
+  <section class="h-64 flex items-center justify-center text-white relative" 
+           style="background: url('Images/Mara.jpg') no-repeat center center/cover;">
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+    <h1 class="text-4xl font-bold relative z-10">Tips & Blog</h1>
+  </section>
 
   <!-- Tips & Blog List -->
   <section class="py-16 container mx-auto px-4">
@@ -74,6 +104,11 @@
   <footer class="bg-gray-800 text-white text-center py-6">
     <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
   </footer>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow">
+    Change Theme
+  </button>
 
   <!-- Scripts -->
   <script src="blogs.js"></script>
@@ -94,13 +129,25 @@
         div.innerHTML = `
           <h3 class="font-bold text-xl p-4">${item.title}</h3>
           <p class="px-4 pb-4">${item.excerpt}</p>
-          <a href="blog-template.html?id=${item.id}" class="block p-4 text-yellow-600 font-semibold hover:underline">Read More</a>
+          <a href="blog-template.html?id=${item.id}" class="block p-4 theme-accent font-semibold hover:underline">Read More</a>
         `;
         container.appendChild(div);
       });
     } else {
       container.innerHTML = "<p class='text-center col-span-3'>No blog posts available at the moment.</p>";
     }
+
+    // Theme toggle
+    const themes = ["default", "nature", "dark"];
+    let current = 0;
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+      current = (current + 1) % themes.length;
+      if (themes[current] === "default") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", themes[current]);
+      }
+    });
   </script>
 </body>
 </html>

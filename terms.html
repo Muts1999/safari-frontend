@@ -3,98 +3,102 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Terms & Conditions - Safari Adventures</title>
+  <title>Terms & Conditions | Safari Adventures</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-    body { padding-top: 80px; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #FAF9F6;
+      color: #1C1C1C;
+      padding-top: 80px;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    .btn-gold {
+      background: linear-gradient(135deg, #C5A572, #8C6A43);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D4AF37, #A9865C);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    }
   </style>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- Google reCAPTCHA -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-
 </head>
-<body class="font-sans text-gray-800">
+<body>
 
-   <!-- Navbar -->
+<!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
-    <div class="flex items-center space-x-2">
-      <a href="index.html#home">
-  <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
-</a>
-    </div>
-
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="index.html#home" class="hover:text-yellow-600">Home</a>
-      <a href="destinations.html" class="hover:text-yellow-600">Destinations</a>
-      <a href="index.html#faq" class="hover:text-yellow-600">FAQ</a>
-      <a href="tips-blog.html" class="hover:text-yellow-600">Tips & Blog</a>
-      <a href="plan-safari.html" class="hover:text-yellow-600">Plan My Safari</a>
-      <a href="index.html#quote" class="bg-yellow-600 text-white px-4 py-2 rounded-full hover:bg-yellow-700">Get a Quote</a>
+    <a href="index.html#home">
+      <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+    </a>
+    <nav class="hidden md:flex space-x-6 font-medium">
+      <a href="index.html#home" class="hover:text-yellow-700">Home</a>
+      <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+      <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
+      <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#quote" class="btn-gold">Get a Quote</a>
     </nav>
-
-    <!-- Mobile Menu Button -->
     <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
   </div>
-
-  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-    <a href="index.html#home" class="block hover:text-yellow-600">Home</a>
-    <a href="destinations.html" class="block hover:text-yellow-600">Destinations</a>
-    <a href="index.html#faq" class="block hover:text-yellow-600">FAQ</a>
-    <a href="tips-blog.html" class="block hover:text-yellow-600">Tips & Blog</a>
-    <a href="plan-safari.html" class="block hover:text-yellow-600">Plan My Safari</a>
-    <a href="index.html#quote" class="block bg-yellow-600 text-white px-4 py-2 rounded-full text-center hover:bg-yellow-700">Get a Quote</a>
+    <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
+    <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
+    <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
+    <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+    <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
   </div>
 </header>
 
-  <!-- Terms & Conditions Content -->
-  <section class="container mx-auto px-4 py-16">
+<!-- Terms & Conditions -->
+<section class="py-16 px-6">
+  <div class="max-w-4xl mx-auto bg-white p-10 rounded-xl shadow-lg">
     <h1 class="text-4xl font-bold mb-6">Terms & Conditions</h1>
+    <p class="mb-6">Please read these terms carefully before booking with Safari Adventures. By confirming your booking, you agree to these conditions.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">1. Bookings</h2>
-    <p>All safari bookings are subject to availability and confirmation. A deposit may be required to secure your reservation.</p>
+    <h2 class="text-2xl font-semibold mb-2">1. Bookings & Payments</h2>
+    <p class="mb-6">A deposit is required to secure your safari booking. The balance must be paid before your departure, as per your booking confirmation.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">2. Payments</h2>
-    <p>Final payment is required before the start of your safari. Cancellation policies will apply as outlined in your booking confirmation.</p>
+    <h2 class="text-2xl font-semibold mb-2">2. Cancellations</h2>
+    <p class="mb-6">Cancellations must be made in writing. Refunds depend on how close to departure the cancellation occurs. Certain fees may be non-refundable.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">3. Responsibilities</h2>
-    <p>Safari Adventures ensures reliable operators and services but is not responsible for issues outside our control, such as weather, flight delays, or government regulations.</p>
+    <h2 class="text-2xl font-semibold mb-2">3. Travel Insurance</h2>
+    <p class="mb-6">We strongly recommend purchasing travel insurance to cover medical emergencies, cancellations, and lost luggage.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">4. Liability</h2>
-    <p>Travel involves risks. We recommend all travelers have valid travel insurance. Safari Adventures is not liable for loss, injury, or damages during the safari.</p>
+    <h2 class="text-2xl font-semibold mb-2">4. Safari Experiences</h2>
+    <p class="mb-6">Wildlife sightings cannot be guaranteed, as they depend on natural conditions. Our guides will do their best to maximize your experience.</p>
 
-    <h2 class="text-2xl font-semibold mt-6 mb-2">5. Governing Law</h2>
-    <p>These Terms are governed by the laws of Kenya.</p>
-  </section>
+    <h2 class="text-2xl font-semibold mb-2">5. Liability</h2>
+    <p class="mb-6">Safari Adventures is not liable for delays, losses, injuries, or damages beyond our control. We work with trusted partners to ensure safety and reliability.</p>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-6">
-    <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
-    <div class="mt-2 space-x-4">
-      <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
-      <a href="terms.html" class="text-yellow-400 hover:underline">Terms & Conditions</a>
-    </div>
-  </footer>
+    <a href="index.html" class="btn-gold mt-6 inline-block">Back to Home</a>
+  </div>
+</section>
 
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
+<!-- Footer -->
+<footer class="bg-[#1C1C1C] text-white text-center py-6">
+  <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+  <div class="mt-2 space-x-4">
+    <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
+    <a href="terms.html" class="text-yellow-400 hover:underline">Terms & Conditions</a>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+</script>
+
 </body>
 </html>
