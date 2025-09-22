@@ -3,104 +3,94 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog - Safari Diaries by Sammy</title>
+  <title>Blog Post - Safari Diaries by Sammy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html { scroll-behavior: smooth; }
-    body {
-      padding-top: 80px;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
 
-    /* THEME VARIABLES */
-    :root {
-      --bg-color: #ffffff;
-      --text-color: #1f2937;
-      --accent-color: #d4af37;
-    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-    [data-theme="nature"] {
-      --bg-color: #faf3e0;
-      --text-color: #3b2f2f;
-      --accent-color: #2f5233;
-    }
+    /* Theme variables */
+    :root { --bg-color: #FAF9F6; --text-color: #1C1C1C; --accent-color: #C5A572; }
+    [data-theme="nature"] { --bg-color: #FDF6E3; --text-color: #3B2F2F; --accent-color: #2F5233; }
+    [data-theme="dark"] { --bg-color: #1C1C1C; --text-color: #E5E7EB; --accent-color: #FBBF24; }
 
-    [data-theme="dark"] {
-      --bg-color: #1a1a1a;
-      --text-color: #e5e7eb;
-      --accent-color: #fbbf24;
+    .theme-accent { color: var(--accent-color); }
+    .btn-gold { 
+      background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.75rem 1.5rem; 
+      border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
     }
+    .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
 
-    .theme-accent {
-      color: var(--accent-color);
-    }
+    .card { background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
-    .theme-btn {
-      background-color: var(--accent-color);
-      color: white;
-    }
+    .category-badge { background-color: var(--accent-color); color: white; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
+
+    /* Hero animations */
+    @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
+    .animate-zoom { animation: zoomIn 5s ease forwards; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
   </style>
 </head>
-<body class="font-sans flex flex-col min-h-screen">
+<body>
 
   <!-- Navbar -->
   <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <div class="flex items-center space-x-2">
-        <a href="index.html#home">
-          <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
-        </a>
-      </div>
-      <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-6">
-        <a href="index.html#home" class="hover:theme-accent">Home</a>
-        <a href="destinations.html" class="hover:theme-accent">Destinations</a>
-        <a href="index.html#faq" class="hover:theme-accent">FAQ</a>
-        <a href="tips-blog.html" class="hover:theme-accent font-bold">Tips & Blog</a>
-        <a href="index.html#quote" class="theme-btn px-4 py-2 rounded-full hover:opacity-90">Get a Quote</a>
+      <a href="index.html#home">
+        <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+      </a>
+      <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html#home" class="hover:text-yellow-700">Home</a>
+        <a href="About.html#About" class="hover:text-yellow-700">About</a>
+        <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+        <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
+        <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
+        <a href="index.html#quote" class="btn-gold">Get a Quote</a>
       </nav>
-      <!-- Mobile Menu Button -->
       <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
     </div>
-    <!-- Mobile Menu -->
     <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-      <a href="index.html#home" class="block hover:theme-accent">Home</a>
-      <a href="destinations.html" class="block hover:theme-accent">Destinations</a>
-      <a href="index.html#faq" class="block hover:theme-accent">FAQ</a>
-      <a href="tips-blog.html" class="block hover:theme-accent font-bold">Tips & Blog</a>
-      <a href="index.html#quote" class="block theme-btn px-4 py-2 rounded-full text-center hover:opacity-90">Get a Quote</a>
+      <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
+      <a href="About.html#About" class="block hover:text-yellow-700">About</a>
+      <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
+      <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
+      <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="h-64 flex items-center justify-center text-white relative" 
-           style="background: url('Images/Mara.jpg') no-repeat center center/cover;">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <h1 class="text-4xl font-bold relative z-10" id="blog-hero-title">Loading...</h1>
+  <section class="h-64 flex items-center justify-center text-white relative overflow-hidden" style="background: #1C1C1C;">
+    <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
+    <h1 class="text-4xl md:text-6xl font-bold relative z-10 animate-fadeIn">Blog Post</h1>
   </section>
 
   <!-- Blog Content -->
-  <section class="py-16 container mx-auto px-4 flex-grow">
-    <div class="max-w-3xl mx-auto text-gray-700">
-      <div id="blog-body" class="prose max-w-none mb-8">
-        <p>Loading content...</p>
-      </div>
-      <div class="text-center">
-        <a href="tips-blog.html" class="text-yellow-600 font-semibold hover:underline">← Back to Tips & Blog</a>
-      </div>
+  <section class="py-16 container mx-auto px-4">
+    <div id="blog-content" class="card max-w-3xl mx-auto animate-fadeIn">
+      <span id="category" class="category-badge">Category</span>
+      <h2 id="title" class="text-2xl font-bold mb-4">Blog Title</h2>
+      <p id="content" class="mb-6">Blog content goes here. This will display the full content of the selected post from blogs.js.</p>
+      <a href="tips-blog.html" class="theme-accent font-semibold hover:underline">← Back to Tips & Blog</a>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white text-center py-6 mt-auto">
+  <footer class="bg-[#1C1C1C] text-white text-center py-6">
     <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
+    <div class="mt-2 space-x-4">
+      <a href="privacy.html" class="text-yellow-400 hover:underline">Privacy Policy</a>
+      <a href="terms.html" class="text-yellow-400 hover:underline">Terms & Conditions</a>
+    </div>
   </footer>
 
   <!-- Theme Toggle Button -->
-  <button id="theme-toggle" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow">
-    Change Theme
-  </button>
+  <button id="theme-toggle" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow">Change Theme</button>
 
   <!-- Scripts -->
   <script src="blogs.js"></script>
@@ -108,36 +98,28 @@
     // Mobile menu toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
     // Theme toggle
-    const themes = ["default", "nature", "dark"];
+    const themes = ["default","nature","dark"];
     let current = 0;
     document.getElementById("theme-toggle").addEventListener("click", () => {
       current = (current + 1) % themes.length;
-      if (themes[current] === "default") {
-        document.documentElement.removeAttribute("data-theme");
-      } else {
-        document.documentElement.setAttribute("data-theme", themes[current]);
-      }
+      if(themes[current]==="default"){document.documentElement.removeAttribute("data-theme");}
+      else{document.documentElement.setAttribute("data-theme", themes[current]);}
     });
 
-    // Load blog content based on id
+    // Load blog post dynamically
     const params = new URLSearchParams(window.location.search);
-    const blogId = params.get('id');
-    const blog = blogs.find(b => String(b.id) === String(blogId));
+    const id = params.get('id');
+    const post = blogs.find(b => b.id == id);
 
-    const blogHeroTitle = document.getElementById('blog-hero-title');
-    const blogBody = document.getElementById('blog-body');
-
-    if (blog) {
-      blogHeroTitle.textContent = blog.title;
-      blogBody.innerHTML = blog.content;
+    if(post){
+      document.getElementById('title').innerText = post.title;
+      document.getElementById('content').innerText = post.content;
+      document.getElementById('category').innerText = post.category.charAt(0).toUpperCase() + post.category.slice(1);
     } else {
-      blogHeroTitle.textContent = "Blog Not Found";
-      blogBody.innerHTML = "<p>Sorry, the blog you are looking for does not exist.</p>";
+      document.getElementById('blog-content').innerHTML = "<p class='text-center'>Post not found.</p>";
     }
   </script>
 </body>

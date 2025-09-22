@@ -1,45 +1,90 @@
 // destinations.js
 
+// Sample destination data
 const destinations = [
   {
-    id: 1,
-    title: "Masai Mara National Reserve",
-    image: "Images/Maasai-mara.jpg",
-    excerpt: "Witness the Great Migration and encounter the Big Five in Kenya’s most famous safari destination.",
-    content: `
-      The Masai Mara is one of Africa’s greatest safari destinations, located in southwest Kenya.
-      It is world-renowned for the **Great Migration**, where millions of wildebeest, zebras, and gazelles
-      cross the Mara River in search of greener pastures. <br><br>
-      Apart from the migration, the Mara is home to the **Big Five** – lion, leopard, rhino, elephant, and buffalo.
-      Visitors can also experience the rich culture of the **Maasai people**, who live harmoniously with wildlife.
-      <br><br>
-      Best time to visit: **July to October** for the migration.
-    `
+    id: "maasai-mara",
+    title: "Maasai Mara, Kenya",
+    description: "The Maasai Mara is Kenya's most famous safari destination, known for its rich wildlife and the Great Migration.",
+    highlights: [
+      "Big Five sightings",
+      "Hot air balloon safaris",
+      "Masai cultural experiences"
+    ],
+    tips: [
+      "Best time to visit: July to October",
+      "Carry binoculars and camera",
+      "Book accommodations early during peak season"
+    ],
+    category: "kenya"
   },
   {
-    id: 2,
-    title: "Amboseli National Park",
-    image: "Images/Amboseli.jpg",
-    excerpt: "Famous for large elephant herds and breathtaking views of Mount Kilimanjaro.",
-    content: `
-      Amboseli National Park lies at the foot of **Mount Kilimanjaro**, Africa’s highest peak. 
-      It is one of the best places in the world to see free-ranging **elephants** up close. <br><br>
-      The park offers a diverse ecosystem, including savannahs, swamps, and seasonal lakes.
-      Birdwatchers can also spot more than **400 species of birds**. <br><br>
-      Best time to visit: **June to October** and **January to February**.
-    `
+    id: "amboseli",
+    title: "Amboseli, Kenya",
+    description: "Amboseli National Park offers iconic views of Mount Kilimanjaro and large elephant herds.",
+    highlights: [
+      "Elephant herds",
+      "Birdwatching",
+      "Scenic landscapes with Mount Kilimanjaro"
+    ],
+    tips: [
+      "Morning game drives are best for wildlife spotting",
+      "Carry sun protection",
+      "Respect local communities"
+    ],
+    category: "kenya"
   },
   {
-    id: 3,
-    title: "Serengeti National Park",
-    image: "Images/Serengeti.jpg",
-    excerpt: "Vast plains, predators, and the legendary wildebeest migration in Tanzania.",
-    content: `
-      The Serengeti is Tanzania’s most iconic park, covering nearly **15,000 square kilometers**.
-      Known for its endless plains, it hosts the world’s largest annual **wildebeest migration**, 
-      where predators follow prey in a life-and-death cycle. <br><br>
-      The Serengeti is also one of the best places to see **cheetahs, lions, and leopards**. <br><br>
-      Best time to visit: **June to September** (dry season) or **December to March** for calving season.
-    `
+    id: "serengeti",
+    title: "Serengeti, Tanzania",
+    description: "Serengeti National Park is a UNESCO World Heritage Site famous for the Great Migration.",
+    highlights: [
+      "Endless plains",
+      "Annual migration",
+      "Big cats and predators"
+    ],
+    tips: [
+      "Visit during migration season for best experience",
+      "Pack light and breathable clothing",
+      "Use a 4x4 safari vehicle"
+    ],
+    category: "tanzania"
   }
 ];
+
+// Function to display destination cards
+function displayDestinations(filter = "all") {
+  const list = document.getElementById("destination-list");
+  list.innerHTML = "";
+
+  const filtered = filter === "all"
+    ? destinations
+    : destinations.filter(d => d.category === filter);
+
+  filtered.forEach(d => {
+    const card = document.createElement("div");
+    card.className = "card p-6";
+
+    card.innerHTML = `
+      <h3 class="text-xl font-bold mb-2">${d.title}</h3>
+      <p class="mb-4">${d.description.substring(0, 100)}...</p>
+      <a href="destination-template.html?id=${d.id}" class="btn-gold">Learn More</a>
+    `;
+
+    list.appendChild(card);
+  });
+}
+
+// Initial display
+displayDestinations();
+
+// Filter buttons
+const filterButtons = document.querySelectorAll(".filter-btn");
+filterButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filterButtons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const category = btn.getAttribute("data-category");
+    displayDestinations(category);
+  });
+});

@@ -1,111 +1,79 @@
-// Sample blogs data
+// blogs.js
+
 const blogs = [
   {
-    id: 1,
-    title: "Top Safari Destinations in Kenya",
-    excerpt: "Explore the most amazing safari spots in Kenya with our guide.",
-    content: "<p>Full content for Top Safari Destinations...</p>",
-    category: "destinations"
+    id: "1",
+    title: "Exploring the Maasai Mara",
+    category: "destinations",
+    excerpt: "Discover the wildlife wonders and breathtaking landscapes of the Maasai Mara.",
+    image: "Images/maasai-mara.jpg",
+    content: [
+      "The Maasai Mara is Kenya's most famous safari destination, known for its rich wildlife and stunning scenery.",
+      "Visitors can expect to see lions, elephants, cheetahs, and the great wildebeest migration.",
+      "The best time to visit is during the dry season from July to October."
+    ]
   },
   {
-    id: 2,
-    title: "Safari Tips for Beginners",
-    excerpt: "Essential tips for anyone planning their first safari.",
-    content: "<p>Full content for Safari Tips...</p>",
-    category: "tips"
+    id: "2",
+    title: "Safari Packing Tips",
+    category: "tips",
+    excerpt: "Ensure you are well-prepared for your African safari with these essential packing tips.",
+    image: "Images/safari-packing.jpg",
+    content: [
+      "Pack light but include essentials like binoculars, a camera, and sunscreen.",
+      "Neutral-colored clothing is recommended to blend in with the wildlife.",
+      "Don't forget a hat, comfortable shoes, and insect repellent."
+    ]
   },
   {
-    id: 3,
-    title: "Travel Guides for East Africa",
-    excerpt: "Comprehensive guides for traveling across East Africa.",
-    content: "<p>Full content for Travel Guides...</p>",
-    category: "guides"
+    id: "3",
+    title: "Guide to Serengeti National Park",
+    category: "guides",
+    excerpt: "Plan your Serengeti adventure with this complete guide to the park.",
+    image: "Images/serengeti.jpg",
+    content: [
+      "Serengeti National Park in Tanzania is famous for its wildlife and the annual wildebeest migration.",
+      "The park offers game drives, hot air balloon safaris, and guided walking safaris.",
+      "Accommodation ranges from luxury lodges to budget campsites."
+    ]
   },
   {
-    id: 4,
-    title: "Wildlife Photography Tips",
-    excerpt: "Capture stunning wildlife photos with these tips.",
-    content: "<p>Full content for Wildlife Photography...</p>",
-    category: "tips"
+    id: "4",
+    title: "Top Wildlife Photography Tips",
+    category: "tips",
+    excerpt: "Capture stunning wildlife photos with these expert photography tips.",
+    image: "Images/wildlife-photo.jpg",
+    content: [
+      "Use a telephoto lens to photograph animals from a safe distance.",
+      "Shoot during golden hours (early morning or late afternoon) for the best light.",
+      "Always be patient and respect the animals’ space."
+    ]
   },
   {
-    id: 5,
-    title: "Luxury Safari Lodges",
-    excerpt: "Discover the best luxury lodges for your safari adventure.",
-    content: "<p>Full content for Luxury Safari Lodges...</p>",
-    category: "destinations"
+    id: "5",
+    title: "Amboseli Safari Highlights",
+    category: "destinations",
+    excerpt: "Experience the iconic views of Mount Kilimanjaro and large herds of elephants in Amboseli.",
+    image: "Images/amboseli.jpg",
+    content: [
+      "Amboseli National Park is renowned for its large elephant herds and views of Mount Kilimanjaro.",
+      "Game drives are ideal for photography enthusiasts.",
+      "The park is smaller than Maasai Mara, making wildlife spotting easier."
+    ]
+  },
+  {
+    id: "6",
+    title: "Planning Your First African Safari",
+    category: "guides",
+    excerpt: "Everything you need to know to plan your first unforgettable safari adventure.",
+    image: "Images/first-safari.jpg",
+    content: [
+      "Choose the right season and destination based on wildlife and weather.",
+      "Decide between a self-drive safari or guided tours.",
+      "Consider travel insurance and health precautions before departure."
+    ]
   }
 ];
 
-// Render blogs with optional category filter
-function renderBlogs(filterCategory = "all") {
-  const container = document.getElementById("blog-posts");
-  container.innerHTML = "";
-
-  if (filterCategory === "all") {
-    // Group by category
-    const categories = ["destinations", "tips", "guides"];
-    categories.forEach(cat => {
-      const catBlogs = blogs.filter(blog => blog.category === cat);
-      if (catBlogs.length > 0) {
-        // Category heading
-        const heading = document.createElement("h2");
-        heading.textContent = cat.charAt(0).toUpperCase() + cat.slice(1);
-        heading.className = "text-2xl font-bold mb-4 col-span-3 theme-accent";
-        container.appendChild(heading);
-
-        // Blogs under this category
-        catBlogs.forEach(blog => {
-          const div = document.createElement("div");
-          div.className = "rounded-lg shadow hover:shadow-lg overflow-hidden bg-white transition hover:scale-105 mb-6";
-          div.innerHTML = `
-            <h3 class="font-bold text-xl p-4">${blog.title}</h3>
-            <p class="px-4 pb-4">${blog.excerpt}</p>
-            <a href="blog-template.html?id=${blog.id}" class="block p-4 theme-accent font-semibold hover:underline">Read More</a>
-          `;
-          container.appendChild(div);
-        });
-      }
-    });
-  } else {
-    const filtered = blogs.filter(blog => blog.category === filterCategory);
-
-    if (filtered.length === 0) {
-      container.innerHTML = "<p class='text-center col-span-3'>No posts found for this category.</p>";
-      return;
-    }
-
-    filtered.forEach(blog => {
-      const div = document.createElement("div");
-      div.className = "rounded-lg shadow hover:shadow-lg overflow-hidden bg-white transition hover:scale-105 mb-6";
-      div.innerHTML = `
-        <h3 class="font-bold text-xl p-4">${blog.title}</h3>
-        <p class="px-4 pb-4">${blog.excerpt}</p>
-        <a href="blog-template.html?id=${blog.id}" class="block p-4 theme-accent font-semibold hover:underline">Read More</a>
-      `;
-      container.appendChild(div);
-    });
-  }
-}
-
-// Initialize filter buttons
-function initFilters() {
-  const buttons = document.querySelectorAll(".filter-btn");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      // Remove active class from all
-      buttons.forEach(b => b.classList.remove("active"));
-      // Add active class to clicked
-      btn.classList.add("active");
-      // Render blogs
-      const category = btn.dataset.category;
-      renderBlogs(category);
-    });
-  });
-}
-
-// Initial render
-document.addEventListener("DOMContentLoaded", () => {
-  renderBlogs("all"); // Show all by default
-  initFilters();
-});
+// Optional: export for modules
+// export default blogs;
