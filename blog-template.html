@@ -8,10 +8,8 @@
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
-
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-    /* Theme variables */
     :root { --bg-color: #FAF9F6; --text-color: #1C1C1C; --accent-color: #C5A572; }
     [data-theme="nature"] { --bg-color: #FDF6E3; --text-color: #3B2F2F; --accent-color: #2F5233; }
     [data-theme="dark"] { --bg-color: #1C1C1C; --text-color: #E5E7EB; --accent-color: #FBBF24; }
@@ -28,7 +26,6 @@
 
     .category-badge { background-color: var(--accent-color); color: white; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
 
-    /* Hero animations */
     @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
     .animate-zoom { animation: zoomIn 5s ease forwards; }
 
@@ -75,7 +72,7 @@
     <div id="blog-content" class="card max-w-3xl mx-auto animate-fadeIn">
       <span id="category" class="category-badge">Category</span>
       <h2 id="title" class="text-2xl font-bold mb-4">Blog Title</h2>
-      <p id="content" class="mb-6">Blog content goes here. This will display the full content of the selected post from blogs.js.</p>
+      <div id="content" class="space-y-4"></div>
       <a href="tips-blog.html" class="theme-accent font-semibold hover:underline">← Back to Tips & Blog</a>
     </div>
   </section>
@@ -116,8 +113,14 @@
 
     if(post){
       document.getElementById('title').innerText = post.title;
-      document.getElementById('content').innerText = post.content;
       document.getElementById('category').innerText = post.category.charAt(0).toUpperCase() + post.category.slice(1);
+
+      const contentDiv = document.getElementById('content');
+      post.content.forEach(paragraph => {
+        const p = document.createElement('p');
+        p.textContent = paragraph;
+        contentDiv.appendChild(p);
+      });
     } else {
       document.getElementById('blog-content').innerHTML = "<p class='text-center'>Post not found.</p>";
     }

@@ -8,7 +8,6 @@
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
-
     h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
     :root { --bg-color: #FAF9F6; --text-color: #1C1C1C; --accent-color: #C5A572; }
@@ -22,13 +21,14 @@
     }
     .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
 
-    .card { background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+    .category-badge { background-color: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
 
     .filter-btn { border: 1px solid var(--accent-color); padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; transition: all 0.2s; }
     .filter-btn:hover, .filter-btn.active { background-color: var(--accent-color); color: white; }
 
-    /* Hero animations */
     @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
     .animate-zoom { animation: zoomIn 5s ease forwards; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -74,13 +74,15 @@
       <button class="filter-btn" data-category="destinations">Destinations</button>
       <button class="filter-btn" data-category="tips">Tips</button>
       <button class="filter-btn" data-category="guides">Guides</button>
+      <button class="filter-btn" data-category="health">Health</button>
     </div>
   </section>
 
   <!-- Blog List -->
-  <section class="py-16 container mx-auto px-4">
-    <div id="blog-posts" class="grid md:grid-cols-3 gap-8"></div>
-  </section>
+<!-- Blog List -->
+<section class="py-12 container mx-auto px-4">
+  <div id="blog-posts" class="grid md:grid-cols-3 gap-6"></div>
+</section>
 
   <!-- Footer -->
   <footer class="bg-[#1C1C1C] text-white text-center py-6">
@@ -113,27 +115,27 @@
 
     // Populate Tips & Blogs dynamically
     const container = document.getElementById('blog-posts');
-    function displayBlogs(filter = 'all'){
-      container.innerHTML = '';
-      const filtered = filter === 'all' ? blogs : blogs.filter(b => b.category === filter);
-      if(filtered.length === 0){
-        container.innerHTML = "<p class='text-center col-span-3'>No blog posts available.</p>";
-        return;
-      }
-      filtered.forEach(item => {
-        const div = document.createElement('div');
-        div.className = "card hover:scale-105 transition";
-        div.innerHTML = `
-          <span class="category-badge">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
-          <h3 class="font-bold text-xl mb-2">${item.title}</h3>
-          <p class="mb-4">${item.excerpt}</p>
-          <a href="blog-template.html?id=${item.id}" class="theme-accent font-semibold hover:underline">Read More</a>
-        `;
-        container.appendChild(div);
-      });
+  function displayBlogs(filter = 'all'){
+    container.innerHTML = '';
+    const filtered = filter === 'all' ? blogs : blogs.filter(b => b.category === filter);
+    if(filtered.length === 0){
+      container.innerHTML = "<p class='text-center col-span-3'>No blog posts available.</p>";
+      return;
     }
+    filtered.forEach(item => {
+      const div = document.createElement('div');
+      div.className = "card text-center p-4"; // compact card
+      div.innerHTML = `
+        <span class="category-badge text-xs">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+        <h3 class="font-semibold text-base mb-2">${item.title}</h3>
+        <p class="mb-3 text-xs text-gray-600">${item.excerpt}</p>
+        <a href="blog-template.html?id=${item.id}" class="theme-accent text-sm font-semibold hover:underline">Read More</a>
+      `;
+      container.appendChild(div);
+    });
+  }
 
-    displayBlogs();
+  displayBlogs();
 
     // Filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {

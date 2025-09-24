@@ -63,17 +63,18 @@ function displayDestinations(filter = "all") {
 
   filtered.forEach(d => {
     const card = document.createElement("div");
-    card.className = "card p-6";
+    card.className = "card text-center p-4"; // compact card styling
 
     card.innerHTML = `
-      <h3 class="text-xl font-bold mb-2">${d.title}</h3>
-      <p class="mb-4">${d.description.substring(0, 150)}...</p>
-      <a href="destination-template.html?id=${d.id}" class="btn-gold">Learn More</a>
+      <h3 class="text-base font-semibold mb-2">${d.title}</h3>
+      <p class="mb-3 text-xs text-gray-600">${d.description.substring(0, 100)}...</p>
+      <a href="destination-template.html?id=${d.id}" class="theme-accent text-sm font-semibold hover:underline">Learn More</a>
     `;
 
     list.appendChild(card);
   });
 }
+
 
 // Initial display
 displayDestinations();
