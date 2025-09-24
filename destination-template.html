@@ -34,6 +34,7 @@
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       padding: 1.5rem;
+      line-height: 1.75;
     }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
 
@@ -106,15 +107,7 @@
   if(destination){
     document.getElementById('destination-title').textContent = destination.title;
     document.getElementById('destination-content').innerHTML = `
-      <p>${destination.description}</p>
-      <h3 class="font-bold text-xl mt-4">Highlights</h3>
-      <ul class="list-disc pl-6">
-        ${destination.highlights.map(h => `<li>${h}</li>`).join('')}
-      </ul>
-      <h3 class="font-bold text-xl mt-4">Travel Tips</h3>
-      <ul class="list-disc pl-6">
-        ${destination.tips.map(t => `<li>${t}</li>`).join('')}
-      </ul>
+      <p class="whitespace-pre-line">${destination.description}</p>
     `;
   } else {
     document.getElementById('destination-title').textContent = "Destination Not Found";
