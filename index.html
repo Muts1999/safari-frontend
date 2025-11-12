@@ -1,277 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safari Diaries by Sammy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safari Adventures</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Lato', sans-serif;
-      background-color: #FAF9F6;
-      color: #1C1C1C;
-      line-height: 1.7;
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { 
+      padding-top: 80px; 
+      font-family: 'Lato', sans-serif; 
+      background: #FAF9F6; 
+      color: #1C1C1C; 
     }
 
-    header {
-      background-color: #fff;
-      padding: 15px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
 
-    header img {
-      height: 50px;
-    }
-
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #1C1C1C;
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: #C5A572;
-    }
-
-    .hero {
-      background: url('Images/Background.jpg') no-repeat center center/cover;
-      height: 90vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
-      padding: 20px;
-    }
-
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
+    /* Luxury Button */
     .btn-gold {
       background: linear-gradient(135deg, #C5A572, #8C6A43);
       color: white;
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
       font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     }
-
     .btn-gold:hover {
       background: linear-gradient(135deg, #D4AF37, #A9865C);
       transform: translateY(-2px);
       box-shadow: 0 6px 15px rgba(0,0,0,0.25);
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      text-align: center;
-      font-size: 2.2rem;
-      margin-bottom: 40px;
-      color: #1C1C1C;
-    }
-
-    .about {
-      text-align: center;
-      max-width: 800px;
-      margin: auto;
-    }
-
-    .stories {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-
-    .story {
+    /* Luxury Card */
+    .card {
       background: white;
-      border-radius: 16px;
+      border-radius: 1rem;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .story:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    .story img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
+    /* Hero Animations */
+    @keyframes zoomIn {
+      from { transform: scale(1.1); }
+      to { transform: scale(1); }
     }
+    .animate-zoom { animation: zoomIn 5s ease forwards; }
 
-    .story-content {
-      padding: 20px;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-
-    .story-content h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-
-    .story-content p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 15px;
-    }
-
-    .cta {
-      text-align: center;
-      background-color: #F5F2EB;
-      padding: 60px 20px;
-      border-radius: 20px;
-      margin-top: 40px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px 0;
-      background-color: #1C1C1C;
-      color: white;
-      font-size: 0.9rem;
-    }
-
-    footer a {
-      color: #C5A572;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      nav { display: none; }
-    }
+    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
   </style>
-</head>
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
 <body>
 
-  <header>
-    <img src="Images/logo.png" alt="Safari Diaries by Sammy Logo">
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#stories">Stories</a>
-      <a href="#plan">Plan Safari</a>
-    </nav>
+ <!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <a href="index.html#home">
+      <img src="Images/logo.png" alt="Logo" class="h-10 w-auto">
+    </a>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-6 font-medium">
+        <a href="index.html#home" class="hover:text-yellow-700">Home</a>
+        
+        <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+        <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
+        <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
+        <a href="index.html#quote" class="btn-gold">Get a Quote</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
+    </div>
+    <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
+      <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
+       
+      <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
+      <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
+      <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Safari Diaries by Sammy</h1>
-      <p>Stories from the heart of the wild — where every journey begins with a heartbeat under African skies.</p>
-      <a href="#plan" class="btn-gold">Start Your Safari Story</a>
+<!-- Hero Section -->
+<section id="home" class="h-screen flex items-center justify-center text-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
+  <!-- Background overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 animate-fadeIn">
+    <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover Africa's Wonders</h1>
+    <p class="text-lg md:text-2xl mb-6">Get personalized tour quotes from Africa's top-rated operators. Your dream safari is just a form away</p>
+    <a href="#quote" class="btn-gold">Request Free Quote</a>
+  </div>
+</section>
+
+<!-- Why Choose Safari Diaries -->
+<section id="why" class="py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Our Story, Your Journey</h2>
+  <div class="grid md:grid-cols-3 gap-8 text-center">
+
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Passion for East Africa</h3>
+      <p>Born from a lifelong love for East Africa’s wildlife and landscapes, Safari Diaries is dedicated to sharing the region’s magic with the world through authentic and immersive experiences.</p>
     </div>
-  </section>
 
-  <!-- About -->
-  <section id="about" class="about">
-    <h2>About Safari Diaries</h2>
-    <p>
-      Welcome to Safari Diaries — my personal journey through the untamed beauty of Africa. 
-      From the endless plains of the Serengeti to the rolling savannahs of the Mara, 
-      every adventure tells a story worth sharing. 
-      Here, you’ll find tales of wildlife, people, and places that move the soul — 
-      and inspire you to write your own safari story.
-    </p>
-  </section>
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Authentic & Responsible Travel</h3>
+      <p>We believe in safaris that make a difference — supporting local communities, conserving wildlife, and promoting sustainable tourism that benefits both people and nature.</p>
+    </div>
 
-  <!-- Featured Stories -->
-  <section id="stories">
-    <h2>Featured Safari Stories</h2>
-    <div class="stories">
-      <div class="story">
-        <img src="Images/maasai-mara.jpg" alt="The Heartbeat of the Mara">
-        <div class="story-content">
-          <h3>The Heartbeat of the Mara</h3>
-          <p>Golden dawns, roaming lions, and the endless rhythm of life. The Maasai Mara isn’t just a destination — it’s a feeling that never leaves you.</p>
-          <a href="blog-mara.html" class="btn-gold">Read Story</a>
-        </div>
+    <div class="card p-6">
+      <h3 class="font-bold text-xl mb-2">Personalized Journeys</h3>
+      <p>Every itinerary is crafted with care, ensuring that your safari reflects your dreams, pace, and personality — from intimate getaways to grand adventures.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- How It Works -->
+<section id="how" class="py-16 px-4 bg-[#F5F2EB]">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">How It Works</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">1️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Fill the Quote Form</h3>
+        <p>Provide your travel details, preferred destinations, and special requests using our simple form.</p>
       </div>
-
-      <div class="story">
-        <img src="Images/serengeti.jpg" alt="Chasing Sunsets in Serengeti">
-        <div class="story-content">
-          <h3>Chasing Sunsets in Serengeti</h3>
-          <p>When the sun kisses the plains goodbye, the Serengeti awakens with whispers of adventure and untold stories beneath the stars.</p>
-          <a href="blog-serengeti.html" class="btn-gold">Read Story</a>
-        </div>
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">2️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Receive a Quote</h3>
+        <p>Our safari experts will prepare a tailored package and send you a detailed quote.</p>
       </div>
-
-      <div class="story">
-        <img src="Images/ol-pejeta.jpg" alt="Guardians of Ol Pejeta">
-        <div class="story-content">
-          <h3>Guardians of Ol Pejeta</h3>
-          <p>Home to the last northern white rhinos, Ol Pejeta is a sanctuary of hope — where conservation and compassion meet under Mount Kenya’s gaze.</p>
-          <a href="blog-olpejeta.html" class="btn-gold">Read Story</a>
-        </div>
+      <div class="card p-6">
+        <div class="text-yellow-700 text-4xl mb-4">3️⃣</div>
+        <h3 class="font-bold text-xl mb-2">Choose & Travel</h3>
+        <p>Pick the safari package that excites you most, confirm your booking, and enjoy your adventure.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Plan Your Safari -->
-  <section id="plan" class="cta">
-    <h2>Plan Your Safari</h2>
-    <p>Ready to experience your own adventure? Share your dream — and let’s make it happen.</p>
-    <a href="quote.html" class="btn-gold">Request a Safari Quote</a>
-  </section>
+<!-- Traveler Recommendations -->
+<section id="recommendations" class="py-16 bg-[#FAF9F6] px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Traveler Recommendations</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-6">
+        <p>"The safari was unforgettable! The guides were knowledgeable and friendly."</p>
+        <h4 class="mt-4 font-bold">– Alice, UK</h4>
+      </div>
+      <div class="card p-6">
+        <p>"Amazing wildlife experience! Highly recommend Safari Adventures by Sammy."</p>
+        <h4 class="mt-4 font-bold">– John, USA</h4>
+      </div>
+      <div class="card p-6">
+        <p>"From planning to safari, everything was perfect. Truly a once-in-a-lifetime experience."</p>
+        <h4 class="mt-4 font-bold">– Maria, Germany</h4>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <footer>
-    <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
+<!-- FAQ -->
+<section id="faq" class="bg-[#F5F2EB] py-16 px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+    <div class="space-y-6 max-w-3xl mx-auto">
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">When is the best time to visit Kenya & Tanzania?</h3>
+        <p>June to October offers the best wildlife viewing, especially during the Great Migration.</p>
+      </div>
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">Do I need a visa?</h3>
+        <p>Yes, most visitors require a visa. Please check your country’s requirements before travel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote Form -->
+<section id="quote" class="form-section py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Request a Free Quote</h2>
+  
+  <form id="quoteForm" 
+        action="https://formspree.io/f/xwpngneg" 
+        method="POST" 
+        class="card max-w-3xl mx-auto p-6 space-y-4">
+
     <div>
-      <a href="#">Privacy Policy</a> | 
-      <a href="#">Terms & Conditions</a>
+      <label class="block font-semibold">Full Name</label>
+      <input type="text" name="name" required class="w-full border rounded p-2">
     </div>
-  </footer>
+    <div>
+      <label class="block font-semibold">Email</label>
+      <input type="email" name="email" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Phone Number & Country Code</label>
+      <input type="text" name="phone" placeholder="+254 7..." required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Country of Residence</label>
+      <input type="text" name="residence" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Destination</label>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="border rounded p-3">
+          <p class="font-semibold">Kenya</p>
+          <label><input type="checkbox" name="destinations" value="Maasai Mara"> Maasai Mara</label><br>
+          <label><input type="checkbox" name="destinations" value="Amboseli"> Amboseli</label><br>
+          <label><input type="checkbox" name="destinations" value="Samburu"> Samburu</label>
+          <label><input type="checkbox" name="destinations" value="Tsavo"> Tsavo</label>
+          <label><input type="checkbox" name="destinations" value="Ol Pejeta"> Ol Pejeta</label>
+          <label><input type="checkbox" name="destinations" value="Lake Nakuru"> LAke Nakuru</label>
+        </div>
+        <div class="border rounded p-3">
+          <p class="font-semibold">Tanzania</p>
+          <label><input type="checkbox" name="destinations" value="Serengeti"> Serengeti</label><br>
+          <label><input type="checkbox" name="destinations" value="Ngorongoro"> Ngorongoro</label><br>
+          <label><input type="checkbox" name="destinations" value="Tarangire"> Tarangire</label>
+          <label><input type="checkbox" name="destinations" value="Manyara"> Manyara</label>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label class="block font-semibold">Dates of Travel</label>
+      <input type="date" name="travelDate" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Number of Travellers</label>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div>
+          <label>Adults</label>
+          <input type="number" name="adults" min="1" required class="w-full border rounded p-2">
+        </div>
+        <div>
+          <label>Children & Ages</label>
+          <input type="text" name="children" placeholder="e.g. 2 (ages 5 & 8)" class="w-full border rounded p-2">
+        </div>
+      </div>
+    </div>
+    <div>
+      <label class="block font-semibold">Number of Days</label>
+      <input type="number" name="days" required class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Budget (USD)</label>
+      <input type="text" name="budget" placeholder="e.g. $3000" class="w-full border rounded p-2">
+    </div>
+    <div>
+      <label class="block font-semibold">Extra Requests</label>
+      <textarea name="requests" rows="4" placeholder="Any special requirements or notes..." class="w-full border rounded p-2"></textarea>
+    </div>
+    
+    <button type="submit" class="btn-gold">Submit</button>
+    <input type="hidden" name="_next" value="https://muts1999.github.io/safari-frontend/thank-you.html">
+  </form>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#1C1C1C] text-white text-center py-6">
+  <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+  <div class="mt-2 space-x-4">
+    <a href="privacy.html" class="text-400 hover:underline">Privacy Policy</a>
+    <a href="terms.html" class="text-400 hover:underline">Terms & Conditions</a>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+</script>
 
 </body>
 </html>
