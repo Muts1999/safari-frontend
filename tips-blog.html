@@ -1,149 +1,162 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="default">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tips & Blog - Safari Diaries by Sammy</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-
-    :root { --bg-color: #FAF9F6; --text-color: #1C1C1C; --accent-color: #C5A572; }
-    [data-theme="nature"] { --bg-color: #FDF6E3; --text-color: #3B2F2F; --accent-color: #2F5233; }
-    [data-theme="dark"] { --bg-color: #1C1C1C; --text-color: #E5E7EB; --accent-color: #FBBF24; }
-
-    .theme-accent { color: var(--accent-color); }
-    .btn-gold { 
-      background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.75rem 1.5rem; 
-      border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
-    }
-    .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
-
-    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-
-    .category-badge { background-color: var(--accent-color); color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
-
-    .filter-btn { border: 1px solid var(--accent-color); padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; transition: all 0.2s; }
-    .filter-btn:hover, .filter-btn.active { background-color: var(--accent-color); color: white; }
-
-    @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
-    .animate-zoom { animation: zoomIn 5s ease forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    :root { --accent: #C5A572; }
+    .btn-gold{background:linear-gradient(135deg,#C5A572,#8C6A43);color:#fff;padding:.6rem 1.25rem;border-radius:9999px;font-weight:600}
+    .card{background:#fff;border-radius:1rem;box-shadow:0 6px 20px rgba(0,0,0,.08);overflow:hidden}
+    .category-badge{background:var(--accent);color:#fff;padding:.25rem .5rem;border-radius:9999px;font-weight:700;font-size:.75rem;display:inline-block}
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .blog-img{width:100%;height:200px;object-fit:cover}
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
+  <!-- Navbar (same style as your site) -->
   <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
     <div class="container mx-auto flex justify-between items-center p-4">
-      <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10 w-auto"></a>
+      <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10"></a>
       <nav class="hidden md:flex space-x-6 font-medium">
         <a href="index.html#home" class="hover:text-yellow-700">Home</a>
-        
         <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+        <a href="tips-blog.html" class="text-yellow-700 font-semibold">Tips & Blog</a>
         <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
-        <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
         <a href="index.html#quote" class="btn-gold">Get a Quote</a>
       </nav>
       <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
     </div>
+
     <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
-      <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
-      
-      <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
-      <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
-      <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#home" class="block">Home</a>
+      <a href="destinations.html" class="block">Destinations</a>
+      <a href="tips-blog.html" class="block text-yellow-700">Tips & Blog</a>
+      <a href="index.html#faq" class="block">FAQ</a>
       <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="h-64 flex items-center justify-center text-white relative overflow-hidden" style="background: #1C1C1C;">
-    <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
-    <h1 class="text-4xl md:text-6xl font-bold relative z-10 animate-fadeIn">Tips & Blog</h1>
-  </section>
-
-  <!-- Filter Buttons -->
-  <section class="container mx-auto px-4 mt-8">
-    <div class="flex flex-wrap gap-4 justify-center">
-      <button class="filter-btn active" data-category="all">All</button>
-      <button class="filter-btn" data-category="destinations">Destinations</button>
-      <button class="filter-btn" data-category="tips">Tips</button>
-      <button class="filter-btn" data-category="guides">Guides</button>
-      <button class="filter-btn" data-category="health">Health</button>
+  <!-- Hero -->
+  <section class="h-64 flex items-center justify-center text-white relative" style="background: url('Images/safari-blog-banner.jpg') center/cover no-repeat;">
+    <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div class="relative z-10 text-center">
+      <h1 class="text-3xl md:text-5xl font-bold">Safari Diaries — Stories & Travel Advisories</h1>
+      <p class="mt-2">Tips, conservation stories, travel advisories and safari inspiration from East Africa.</p>
     </div>
   </section>
 
-  <!-- Blog List -->
-<!-- Blog List -->
-<section class="py-12 container mx-auto px-4">
-  <div id="blog-posts" class="grid md:grid-cols-3 gap-6"></div>
-</section>
+  <!-- Blog Listing -->
+  <section class="py-12 container mx-auto px-4">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl font-bold">Latest Stories</h2>
+      <div>
+        <label class="mr-2 text-sm">Filter:</label>
+        <select id="categoryFilter" class="border rounded p-2 text-sm">
+          <option value="all">All</option>
+          <option value="wildlife">Wildlife</option>
+          <option value="planning">Planning</option>
+          <option value="conservation">Conservation</option>
+          <option value="family">Family</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="blog-container" class="blog-grid"></div>
+
+    <div class="text-center mt-8">
+      <button id="loadMoreBtn" class="btn-gold">Load more</button>
+    </div>
+  </section>
+
+  <!-- Inquire CTA -->
+  <section class="bg-[#F5F2EB] py-12 text-center">
+    <h3 class="text-xl font-bold mb-2">Ready to plan your safari?</h3>
+    <p class="max-w-2xl mx-auto mb-4">Get a personalised quote from Safari Diaries — we'll tailor the trip to your timeline, budget and interests.</p>
+    <a href="index.html#quote" class="btn-gold">Inquire Now</a>
+  </section>
 
   <!-- Footer -->
   <footer class="bg-[#1C1C1C] text-white text-center py-6">
     <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
     <div class="mt-2 space-x-4">
-      <a href="privacy.html" class="text-400 hover:underline">Privacy Policy</a>
-      <a href="terms.html" class="text-400 hover:underline">Terms & Conditions</a>
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+      <a href="terms.html" class="hover:underline">Terms & Conditions</a>
     </div>
   </footer>
 
-  <!-- Theme Toggle Button -->
-  <button id="theme-toggle" class="fixed bottom-4 right-4 bg-gray-800 text-white px-4 py-2 rounded-lg shadow">Change Theme</button>
-
   <!-- Scripts -->
   <script src="blogs.js"></script>
+
   <script>
     // Mobile menu toggle
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-    // Theme toggle
-    const themes = ["default","nature","dark"];
-    let current = 0;
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-      current = (current + 1) % themes.length;
-      if(themes[current]==="default"){document.documentElement.removeAttribute("data-theme");}
-      else{document.documentElement.setAttribute("data-theme", themes[current]);}
-    });
+    // Render blog cards
+    const container = document.getElementById('blog-container');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const categoryFilter = document.getElementById('categoryFilter');
 
-    // Populate Tips & Blogs dynamically
-    const container = document.getElementById('blog-posts');
-  function displayBlogs(filter = 'all'){
-    container.innerHTML = '';
-    const filtered = filter === 'all' ? blogs : blogs.filter(b => b.category === filter);
-    if(filtered.length === 0){
-      container.innerHTML = "<p class='text-center col-span-3'>No blog posts available.</p>";
-      return;
-    }
-    filtered.forEach(item => {
-      const div = document.createElement('div');
-      div.className = "card text-center p-4"; // compact card
-      div.innerHTML = `
-        <span class="category-badge text-xs">${item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
-        <h3 class="font-semibold text-base mb-2">${item.title}</h3>
-        <p class="mb-3 text-xs text-gray-600">${item.excerpt}</p>
-        <a href="blog-template.html?id=${item.id}" class="theme-accent text-sm font-semibold hover:underline">Read More</a>
-      `;
-      container.appendChild(div);
-    });
-  }
+    let visibleCount = 6; // initial cards to show
+    function formatMeta(b){ return `${b.author} • ${b.date}`; }
 
-  displayBlogs();
+    function renderCards(filter = 'all', resetVisible = false) {
+      if (resetVisible) visibleCount = 6;
+      container.innerHTML = '';
+      // apply filter
+      const list = (filter === 'all') ? blogs.slice() : blogs.filter(b => b.category === filter);
+      if (list.length === 0) {
+        container.innerHTML = '<p class="text-center col-span-full">No posts found in this category.</p>';
+        loadMoreBtn.style.display = 'none';
+        return;
+      }
 
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        displayBlogs(btn.getAttribute('data-category'));
+      // sort by date (optional): newest first — assumes date strings are in readable format
+      list.sort((a,b) => new Date(b.date) - new Date(a.date));
+
+      const slice = list.slice(0, visibleCount);
+      slice.forEach(post => {
+        const el = document.createElement('article');
+        el.className = 'card';
+        el.innerHTML = `
+          <img class="blog-img" src="${post.image}" alt="${post.title}">
+          <div style="padding:1rem">
+            <span class="category-badge">${post.category}</span>
+            <h3 style="margin-top:.5rem;font-size:1.15rem;font-weight:700">${post.title}</h3>
+            <p style="color:#666;font-size:.9rem;margin:.5rem 0">${formatMeta(post)}</p>
+            <p style="color:#333">${post.excerpt}</p>
+            <div style="margin-top:.8rem">
+              <a href="blog.html?id=${encodeURIComponent(post.id)}" class="text-yellow-700 font-semibold">Read More →</a>
+            </div>
+          </div>
+        `;
+        container.appendChild(el);
       });
+
+      loadMoreBtn.style.display = (visibleCount < list.length) ? 'inline-block' : 'none';
+    }
+
+    // initial render
+    renderCards();
+
+    // load more
+    loadMoreBtn.addEventListener('click', () => {
+      visibleCount += 6;
+      renderCards(categoryFilter.value);
+    });
+
+    // filter change
+    categoryFilter.addEventListener('change', () => {
+      renderCards(categoryFilter.value, true);
+      // scroll to top of listing after filter
+      window.scrollTo({ top: document.getElementById('blog-container').offsetTop - 80, behavior: 'smooth' });
     });
   </script>
 </body>

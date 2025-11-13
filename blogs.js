@@ -1,91 +1,67 @@
 // blogs.js
+// Array of blog posts - add, edit or remove posts here.
+// Ensure `id` values are URL-friendly (used in ?id=post-id links).
 
 const blogs = [
   {
-    id: "1",
-    title: "Exploring the Maasai Mara",
-    category: "destinations",
-    excerpt: "Discover the wildlife wonders and breathtaking landscapes of the Maasai Mara.",
-    image: "Images/maasai-mara.jpg",
+    id: "great-migration",
+    title: "The Great Migration: Nature’s Most Spectacular Show",
+    category: "wildlife",
+    author: "Sammy — Safari Diaries",
+    date: "September 18, 2025",
+    image: "Images/great-migration.jpg",
+    excerpt:
+      "Every year, millions of wildebeest and zebras cross from Tanzania’s Serengeti into Kenya’s Maasai Mara. Discover when and where to witness this breathtaking journey.",
     content: [
-      "The Maasai Mara is Kenya's most famous safari destination, a vast wilderness where the golden savannah stretches endlessly to the horizon. It is home to an incredible density of wildlife, making it one of the best places on Earth to witness predators in action and the great drama of the natural world unfold before your eyes.",
-      "Lions, elephants, cheetahs, and leopards roam freely here, while wildebeest and zebras dominate the plains during the annual Great Migration. Between July and October, millions of animals move in search of greener pastures, and with them come thrilling predator encounters that create unforgettable safari moments.",
-      "The Maasai Mara is not only about wildlife but also about culture. The Maasai people, with their vibrant traditions and colorful attire, welcome visitors to experience their way of life. A visit here is truly a journey into the heart of Africa’s wild beauty."
+      "The Great Migration is one of the most iconic wildlife events on Earth — a massive movement of over two million wildebeest, zebras, and gazelles across the Serengeti and Maasai Mara ecosystems.",
+      "It’s a story of instinct, endurance, and survival that unfolds in the heart of East Africa each year. The timing depends on rains and grazing conditions; typically, July to October is prime for Mara river crossings.",
+      "Top vantage points include the Mara Triangle, Talek River, and Kogatende in the northern Serengeti. Consider staying in mobile camps for the closest access to crossings."
     ]
   },
   {
-    id: "2",
-    title: "Safari Packing Tips",
-    category: "tips",
-    excerpt: "Ensure you are well-prepared for your African safari with these essential packing tips.",
-    image: "Images/safari-packing.jpg",
+    id: "luxury-safari-tips",
+    title: "10 Tips for Planning a Luxury Safari in Africa",
+    category: "planning",
+    author: "Sammy — Safari Diaries",
+    date: "October 25, 2025",
+    image: "Images/luxury-safari.jpg",
+    excerpt:
+      "From choosing the right camps to packing smart, these practical tips will help you craft an unforgettable luxury safari experience.",
     content: [
-      "Packing for a safari requires a careful balance between comfort, practicality, and respect for the natural environment. Unlike other trips, a safari demands gear that helps you blend into your surroundings and equips you for long days in the wilderness.",
-      "Neutral-colored clothing, such as khaki, beige, and olive, is highly recommended because it reduces distractions for wildlife and helps protect against dust. A wide-brimmed hat, sturdy walking shoes, and breathable layers ensure comfort during game drives that often start chilly at dawn and end under the blazing sun.",
-      "Essential items include binoculars for spotting distant animals, a good-quality camera for capturing memories, insect repellent to ward off mosquitoes, and sunscreen to shield from harsh rays. Pack light, but smart—you’ll thank yourself when moving between camps."
+      "Luxury safaris combine comfort with authentic bush experiences. Prioritize well-located lodges, small-group game drives and private guides if your budget allows.",
+      "Book early for peak seasons (July–October) and request rooms with private viewing decks or plunge pools for the best experience.",
+      "Bring layered clothing for cold mornings and hot afternoons, and don’t forget sun protection and a good pair of binoculars."
     ]
   },
   {
-    id: "3",
-    title: "Guide to Serengeti National Park",
-    category: "guides",
-    excerpt: "Plan your Serengeti adventure with this complete guide to the park.",
-    image: "Images/serengeti.jpg",
+    id: "ol-pejeta-conservation",
+    title: "Ol Pejeta Conservancy: Conservation, Community & Incredible Wildlife",
+    category: "conservation",
+    author: "Sammy — Safari Diaries",
+    date: "August 12, 2025",
+    image: "Images/ol-pejeta.jpg",
+    excerpt:
+      "Ol Pejeta is home to innovative conservation programs and the last two northern white rhinos. Learn how your visit supports wildlife protection.",
     content: [
-      "The Serengeti in Tanzania is a legendary safari destination and a UNESCO World Heritage Site, celebrated for its vast plains and breathtaking wildlife spectacles. It is the stage for the world-famous Great Migration, where millions of wildebeest and zebras travel across the ecosystem in a timeless rhythm of survival.",
-      "Game drives across the Serengeti reveal incredible biodiversity, from prides of lions lazing under acacia trees to cheetahs scanning the horizon for prey. Birdwatchers will also be delighted with over 500 recorded species, including ostriches, secretary birds, and vultures circling the skies.",
-      "Visitors can explore the Serengeti in multiple ways—traditional 4x4 safaris, hot air balloon rides offering sunrise views over the savannah, or guided walking safaris that bring you even closer to the land. Whether you stay in luxury lodges or under canvas in mobile camps, the Serengeti offers a once-in-a-lifetime experience."
+      "Ol Pejeta is a conservation success story. The conservancy blends tourism, community projects, and protection of endangered species.",
+      "Visitors can learn about the Rhino Protection Unit, visit the chimp sanctuary, and enjoy night game drives guided by conservation-minded rangers.",
+      "Your park fees and lodge stays help fund anti-poaching units and community programs — making tourism a force for good."
     ]
   },
   {
-    id: "4",
-    title: "Top Wildlife Photography Tips",
-    category: "tips",
-    excerpt: "Capture stunning wildlife photos with these expert photography tips.",
-    image: "Images/wildlife-photo.jpg",
+    id: "family-friendly-safaris",
+    title: "Family-Friendly Safaris: Adventures for All Ages",
+    category: "family",
+    author: "Sammy — Safari Diaries",
+    date: "July 20, 2025",
+    image: "Images/family-safari.jpg",
+    excerpt:
+      "Yes — children can love safaris. Learn about child-friendly lodges, activities, and safety tips to help you plan a family trip everyone will enjoy.",
     content: [
-      "Wildlife photography is as much about patience and respect as it is about equipment. Safaris provide an extraordinary opportunity to capture animals in their natural habitats, but success depends on preparation and understanding your subject.",
-      "A telephoto lens is invaluable for photographing animals from a safe distance, ensuring both your safety and the animals’ comfort. Early mornings and late afternoons, often referred to as the golden hours, offer the most flattering light, creating rich colors and dramatic contrasts across the landscapes.",
-      "Above all, remain patient and observant. Wildlife does not perform on command, and some of the most powerful shots come from waiting quietly until the perfect moment arises. Respect the space of the animals, and your photographs will reflect both authenticity and awe."
-    ]
-  },
-  {
-    id: "5",
-    title: "Amboseli Safari Highlights",
-    category: "destinations",
-    excerpt: "Experience the iconic views of Mount Kilimanjaro and large herds of elephants in Amboseli.",
-    image: "Images/amboseli.jpg",
-    content: [
-      "Amboseli National Park in southern Kenya is world-renowned for its breathtaking scenery, where the snow-capped peak of Mount Kilimanjaro rises majestically above the savannah. This backdrop creates some of the most iconic safari photographs in Africa, with elephants often framed against the towering mountain.",
-      "The park is particularly famous for its large herds of elephants, many of which have been studied for decades, making them some of the most well-documented elephant populations in the world. Beyond elephants, Amboseli also shelters lions, buffaloes, giraffes, and a rich variety of birdlife in its swamps and wetlands.",
-      "Compact in size compared to other reserves, Amboseli offers excellent chances to see wildlife in a relatively short time. Whether you are a seasoned safari-goer or a first-time visitor, Amboseli’s combination of scenery, wildlife, and cultural encounters with the Maasai makes it unforgettable."
-    ]
-  },
-  {
-    id: "6",
-    title: "Planning Your First African Safari",
-    category: "guides",
-    excerpt: "Everything you need to know to plan your first unforgettable safari adventure.",
-    image: "Images/first-safari.jpg",
-    content: [
-      "Embarking on your first African safari is an exhilarating experience, but it requires thoughtful planning to make it as smooth and rewarding as possible. The first step is choosing the right destination and season. Kenya, Tanzania, Botswana, and South Africa all offer unique safari experiences, and timing can determine whether you witness migrations, lush green landscapes, or predator action.",
-      "Another important decision is whether to join a guided safari or attempt a self-drive. Guided safaris provide expert knowledge, convenience, and safety, while self-drives offer flexibility and independence. Your choice will depend on comfort levels and budget.",
-      "Don’t overlook practical matters like travel insurance, health precautions, and entry requirements. Vaccinations, visas, and packing essentials all play a role in ensuring peace of mind. With the right preparation, your first safari can be the adventure of a lifetime."
-    ]
-  },
-  {
-    id: "7",
-    title: "Vaccinations and Health Tips for Safari Travelers",
-    category: "health",
-    excerpt: "Stay safe and healthy on your safari with these essential vaccination and travel health tips.",
-    image: "Images/health-tips.jpg",
-    content: [
-      "Health is one of the most important aspects to consider before embarking on a safari. Many safari destinations are located in regions where specific vaccinations and preventative measures are highly recommended. Consulting a travel health clinic at least 6 weeks before departure ensures you have adequate time to receive the necessary vaccinations.",
-      "Commonly recommended vaccines include yellow fever, which is mandatory for entry into some countries, as well as hepatitis A, typhoid, and tetanus. In areas where malaria is present, travelers are strongly advised to take prophylactic medication and use mosquito nets or repellents to minimize risk.",
-      "Other health tips include staying well-hydrated during game drives, carrying a small personal medical kit, and practicing food and water safety to avoid stomach illnesses. With a few precautions and proper planning, you can enjoy your safari in comfort and confidence, focusing fully on the adventure."
+      "Many lodges offer family tents, babysitting and tailored activities for children. Select properties that welcome kids and provide flexible game-drive schedules.",
+      "Consider malaria advice and vaccination guidance before travel and ask your operator about vehicle safety seats or family-focused vehicles.",
+      "Pack activities for downtime — drawing materials, simple field guides, and a camera for young photographers."
     ]
   }
+  // Add more objects here as needed
 ];
-
-// Optional: export for modules
-// export default blogs;
