@@ -3,17 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Safari Adventures - Home</title>
+  <title>Safari Adventures</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
     h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+
+    /* Buttons */
     .btn-gold { background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
     .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
+
+    /* Cards */
     .card { background: white; border-radius: 1rem; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+    /* Hero Animations */
+    @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
+    .animate-zoom { animation: zoomIn 5s ease forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
+
+    /* Blog Cards */
+    .blog-card { border-radius: 1rem; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .blog-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .blog-card img { width: 100%; height: 200px; object-fit: cover; }
   </style>
 </head>
 <body>
@@ -21,7 +39,7 @@
 <!-- Navbar -->
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
-    <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10 w-auto"></a>
+    <a href="#home"><img src="Images/logo.png" alt="Logo" class="h-10 w-auto"></a>
     <nav class="hidden md:flex space-x-6 font-medium">
       <a href="#home" class="hover:text-yellow-700">Home</a>
       <a href="destinations.html#destinations" class="hover:text-yellow-700">Destinations</a>
@@ -41,81 +59,100 @@
 </header>
 
 <!-- Hero Section -->
-<section id="home" class="h-screen flex items-center justify-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
-  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-  <div class="relative z-10 text-center">
+<section id="home" class="h-screen flex items-center justify-center text-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
+  <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
+  <div class="relative z-10 animate-fadeIn">
     <h1 class="text-4xl md:text-6xl font-bold mb-4">Discover Africa's Wonders</h1>
     <p class="text-lg md:text-2xl mb-6">Get personalized tour quotes from Africa's top-rated operators. Your dream safari is just a form away</p>
     <a href="#quote" class="btn-gold">Request Free Quote</a>
   </div>
 </section>
 
-<!-- Latest Destinations -->
-<section id="destinations" class="py-16 container mx-auto px-4">
-  <h2 class="text-3xl font-bold text-center mb-10">Featured Destinations</h2>
-  <div id="destination-list" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <!-- Destination cards populated via destinations.js -->
+<!-- Traveler Recommendations -->
+<section id="recommendations" class="py-16 bg-[#FAF9F6] px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Traveler Recommendations</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="card p-6">
+        <p>"The safari was unforgettable! The guides were knowledgeable and friendly."</p>
+        <h4 class="mt-4 font-bold">– Alice, UK</h4>
+      </div>
+      <div class="card p-6">
+        <p>"Amazing wildlife experience! Highly recommend Safari Adventures by Sammy."</p>
+        <h4 class="mt-4 font-bold">– John, USA</h4>
+      </div>
+      <div class="card p-6">
+        <p>"From planning to safari, everything was perfect. Truly a once-in-a-lifetime experience."</p>
+        <h4 class="mt-4 font-bold">– Maria, Germany</h4>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- Latest Blog Posts -->
-<section id="latest-blogs" class="py-16 bg-[#F5F2EB] container mx-auto px-4">
-  <h2 class="text-3xl font-bold text-center mb-10">Latest Blog Posts</h2>
-  <div id="latest-blog-list" class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-    <!-- Blog cards populated via blogs.js -->
+<!-- Blog Section -->
+<section id="latest-blogs" class="py-16 px-4 bg-[#F5F2EB]">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Latest Stories</h2>
+    <div id="blog-cards" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8"></div>
+    <div class="text-center mt-8">
+      <a href="tips-blog.html" class="btn-gold">View All Blogs</a>
+    </div>
   </div>
 </section>
 
-<!-- Inquiry Section -->
-<section id="quote" class="py-16 text-center">
-  <h2 class="text-3xl font-bold mb-4">Plan Your Safari Today</h2>
-  <p class="mb-6">Reach out to us for a personalized safari experience.</p>
-  <a href="index.html#quote" class="btn-gold">Request a Quote</a>
+<!-- FAQ -->
+<section id="faq" class="bg-[#FAF9F6] py-16 px-4">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-10">Frequently Asked Questions</h2>
+    <div class="space-y-6 max-w-3xl mx-auto">
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">When is the best time to visit Kenya & Tanzania?</h3>
+        <p>June to October offers the best wildlife viewing, especially during the Great Migration.</p>
+      </div>
+      <div class="card p-6 text-left">
+        <h3 class="font-semibold">Do I need a visa?</h3>
+        <p>Yes, most visitors require a visa. Please check your country’s requirements before travel.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- Footer -->
 <footer class="bg-[#1C1C1C] text-white text-center py-6">
   <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
   <div class="mt-2 space-x-4">
-    <a href="privacy.html" class="hover:underline">Privacy Policy</a>
-    <a href="terms.html" class="hover:underline">Terms & Conditions</a>
+    <a href="privacy.html" class="text-400 hover:underline">Privacy Policy</a>
+    <a href="terms.html" class="text-400 hover:underline">Terms & Conditions</a>
   </div>
 </footer>
 
 <!-- Scripts -->
-<script src="destinations.js"></script>
 <script src="blogs.js"></script>
 <script>
   // Mobile menu toggle
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
 
-  // Populate destinations dynamically
-  const destinationList = document.getElementById('destination-list');
-  destinations.forEach(dest => {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <img src="${dest.image}" alt="${dest.title}" class="rounded mb-4 w-full h-48 object-cover">
-      <h3 class="font-bold text-xl mb-2">${dest.title}</h3>
-      <p class="mb-2">${dest.description}</p>
-      <p class="font-semibold">Best time: ${dest.bestTime}</p>
-    `;
-    destinationList.appendChild(card);
-  });
+  // Load latest 4 blog posts
+  const blogCardsContainer = document.getElementById('blog-cards');
+  const latestBlogs = blogs.slice(-4).reverse(); // get last 4 posts
 
-  // Populate latest 4 blog posts
-  const latestBlogList = document.getElementById('latest-blog-list');
-  blogs.slice(0,4).forEach(blog => {
+  latestBlogs.forEach(post => {
     const card = document.createElement('div');
-    card.className = 'card';
+    card.classList.add('blog-card', 'card');
+
     card.innerHTML = `
-      <h3 class="font-bold text-xl mb-2">${blog.title}</h3>
-      <p class="mb-4">${blog.content[0].substring(0, 120)}...</p>
-      <a href="blog-post.html?id=${blog.id}" class="text-yellow-700 font-semibold hover:underline">Read More →</a>
+      <img src="${post.image || 'Images/default-blog.jpg'}" alt="${post.title}">
+      <div class="p-4">
+        <span class="category-badge">${post.category.charAt(0).toUpperCase() + post.category.slice(1)}</span>
+        <h3 class="font-bold text-xl mb-2">${post.title}</h3>
+        <p class="mb-4">${post.content[0].slice(0, 100)}...</p>
+        <a href="blog-post.html?id=${post.id}" class="btn-gold">Read More</a>
+      </div>
     `;
-    latestBlogList.appendChild(card);
+
+    blogCardsContainer.appendChild(card);
   });
 </script>
 
