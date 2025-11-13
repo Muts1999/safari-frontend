@@ -1,67 +1,68 @@
 // blogs.js
-// Array of blog posts - add, edit or remove posts here.
-// Ensure `id` values are URL-friendly (used in ?id=post-id links).
-
 const blogs = [
   {
-    id: "great-migration",
-    title: "The Great Migration: Nature’s Most Spectacular Show",
-    category: "wildlife",
-    author: "Sammy — Safari Diaries",
-    date: "September 18, 2025",
-    image: "Images/great-migration.jpg",
-    excerpt:
-      "Every year, millions of wildebeest and zebras cross from Tanzania’s Serengeti into Kenya’s Maasai Mara. Discover when and where to witness this breathtaking journey.",
+    id: "1",
+    title: "Exploring the Maasai Mara: Safari Tips",
+    category: "Safari",
+    excerpt: "Discover the secrets to making your Maasai Mara safari unforgettable with expert tips and travel advice.",
     content: [
-      "The Great Migration is one of the most iconic wildlife events on Earth — a massive movement of over two million wildebeest, zebras, and gazelles across the Serengeti and Maasai Mara ecosystems.",
-      "It’s a story of instinct, endurance, and survival that unfolds in the heart of East Africa each year. The timing depends on rains and grazing conditions; typically, July to October is prime for Mara river crossings.",
-      "Top vantage points include the Mara Triangle, Talek River, and Kogatende in the northern Serengeti. Consider staying in mobile camps for the closest access to crossings."
-    ]
+      "The Maasai Mara is one of Africa’s premier safari destinations, known for its abundant wildlife and the Great Migration.",
+      "To maximize your experience, plan your trip between July and October, when wildlife sightings are at their peak.",
+      "Bring lightweight clothing, binoculars, and a good camera to capture the stunning landscapes and wildlife."
+    ],
+    image: "Images/blog1.jpg",
+    date: "2025-10-20"
   },
   {
-    id: "luxury-safari-tips",
-    title: "10 Tips for Planning a Luxury Safari in Africa",
-    category: "planning",
-    author: "Sammy — Safari Diaries",
-    date: "October 25, 2025",
-    image: "Images/luxury-safari.jpg",
-    excerpt:
-      "From choosing the right camps to packing smart, these practical tips will help you craft an unforgettable luxury safari experience.",
+    id: "2",
+    title: "Tanzania Safari: Best Time to Visit",
+    category: "Travel Advisory",
+    excerpt: "Plan your Tanzania safari by understanding the best times to witness wildlife and enjoy comfortable weather.",
     content: [
-      "Luxury safaris combine comfort with authentic bush experiences. Prioritize well-located lodges, small-group game drives and private guides if your budget allows.",
-      "Book early for peak seasons (July–October) and request rooms with private viewing decks or plunge pools for the best experience.",
-      "Bring layered clothing for cold mornings and hot afternoons, and don’t forget sun protection and a good pair of binoculars."
-    ]
+      "Tanzania offers iconic safari experiences in Serengeti, Ngorongoro Crater, and Tarangire National Park.",
+      "The dry season from June to October is ideal for game drives, while the green season brings lush landscapes and fewer crowds.",
+      "Booking early ensures better accommodation options and guides."
+    ],
+    image: "Images/blog2.jpg",
+    date: "2025-11-01"
   },
   {
-    id: "ol-pejeta-conservation",
-    title: "Ol Pejeta Conservancy: Conservation, Community & Incredible Wildlife",
-    category: "conservation",
-    author: "Sammy — Safari Diaries",
-    date: "August 12, 2025",
-    image: "Images/ol-pejeta.jpg",
-    excerpt:
-      "Ol Pejeta is home to innovative conservation programs and the last two northern white rhinos. Learn how your visit supports wildlife protection.",
+    id: "3",
+    title: "Family Safari Adventures in Kenya",
+    category: "Tips",
+    excerpt: "Tips for planning a memorable family safari in Kenya that delights adults and children alike.",
     content: [
-      "Ol Pejeta is a conservation success story. The conservancy blends tourism, community projects, and protection of endangered species.",
-      "Visitors can learn about the Rhino Protection Unit, visit the chimp sanctuary, and enjoy night game drives guided by conservation-minded rangers.",
-      "Your park fees and lodge stays help fund anti-poaching units and community programs — making tourism a force for good."
-    ]
+      "Choose family-friendly lodges that offer activities for children and ensure safety on game drives.",
+      "Shorter daily drives with flexible schedules make it more enjoyable for young travelers.",
+      "Introduce kids to wildlife conservation and cultural experiences to make the safari educational and fun."
+    ],
+    image: "Images/blog3.jpg",
+    date: "2025-11-08"
   },
   {
-    id: "family-friendly-safaris",
-    title: "Family-Friendly Safaris: Adventures for All Ages",
-    category: "family",
-    author: "Sammy — Safari Diaries",
-    date: "July 20, 2025",
-    image: "Images/family-safari.jpg",
-    excerpt:
-      "Yes — children can love safaris. Learn about child-friendly lodges, activities, and safety tips to help you plan a family trip everyone will enjoy.",
+    id: "4",
+    title: "Packing Essentials for Your Safari",
+    category: "Tips",
+    excerpt: "A complete guide on what to pack for your African safari to ensure comfort, safety, and memorable photos.",
     content: [
-      "Many lodges offer family tents, babysitting and tailored activities for children. Select properties that welcome kids and provide flexible game-drive schedules.",
-      "Consider malaria advice and vaccination guidance before travel and ask your operator about vehicle safety seats or family-focused vehicles.",
-      "Pack activities for downtime — drawing materials, simple field guides, and a camera for young photographers."
-    ]
+      "Pack lightweight, breathable clothing in neutral colors to blend into the environment.",
+      "Don’t forget a wide-brimmed hat, sunscreen, binoculars, and a camera with extra batteries.",
+      "Always bring medications, insect repellent, and copies of important documents."
+    ],
+    image: "Images/blog4.jpg",
+    date: "2025-11-10"
+  },
+  {
+    id: "5",
+    title: "Responsible Tourism in East Africa",
+    category: "Travel Advisory",
+    excerpt: "Learn how to enjoy East Africa responsibly while supporting local communities and conservation efforts.",
+    content: [
+      "Respect local cultures, traditions, and wildlife by following ethical tourism guidelines.",
+      "Choose tour operators that prioritize sustainability and community involvement.",
+      "Minimize plastic use, leave no trace, and encourage wildlife-friendly practices."
+    ],
+    image: "Images/blog5.jpg",
+    date: "2025-11-12"
   }
-  // Add more objects here as needed
 ];
