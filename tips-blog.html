@@ -1,49 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Safari Blog - Tips & Stories</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tips & Blog - Safari Adventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; padding-top: 80px; }
-    h1,h2,h3 { font-family: 'Playfair Display', serif; }
-    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-    .blog-img { width: 100%; height: 180px; object-fit: cover; }
-    .btn-gold { background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 600; text-align:center; display:inline-block; margin-top:0.5rem; }
+    .btn-gold { background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; }
+    .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); }
     .category-badge { background: #C5A572; color: white; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.75rem; font-weight: bold; display: inline-block; margin-bottom: 0.5rem; }
   </style>
 </head>
 <body>
-  <header class="fixed top-0 left-0 w-full bg-white shadow z-50 p-4">
-    <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10"></a>
-  </header>
 
-  <section class="py-16 container mx-auto px-4">
-    <h1 class="text-3xl font-bold text-center mb-10">Tips & Blog</h1>
-    <div id="blog-list" class="grid md:grid-cols-3 gap-6"></div>
-  </section>
+<!-- Navbar -->
+<header class="fixed top-0 left-0 w-full bg-white shadow z-50">
+  <div class="container mx-auto flex justify-between items-center p-4">
+    <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10 w-auto"></a>
+    <nav class="hidden md:flex space-x-6 font-medium">
+      <a href="index.html#home" class="hover:text-yellow-700">Home</a>
+      <a href="destinations.html#destinations" class="hover:text-yellow-700">Destinations</a>
+      <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
+      <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
+      <a href="index.html#quote" class="btn-gold">Get a Quote</a>
+    </nav>
+    <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
+  </div>
+  <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
+    <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
+    <a href="destinations.html#destinations" class="block hover:text-yellow-700">Destinations</a>
+    <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
+    <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
+    <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
+  </div>
+</header>
 
-  <script src="blogs.js"></script>
-  <script>
-    const blogList = document.getElementById('blog-list');
-    blogs.forEach(blog => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <img src="${blog.image}" alt="${blog.title}" class="blog-img">
-        <div class="p-4">
-          <span class="category-badge">${blog.category}</span>
-          <h3 class="font-bold mt-2 mb-2">${blog.title}</h3>
-          <p class="text-sm text-gray-600 mb-3">${blog.author} • ${blog.date}</p>
-          <p class="text-gray-700 text-sm mb-3">${blog.excerpt}</p>
-          <a href="blog.html?id=${blog.id}" class="btn-gold inline-block">Read More →</a>
-          <a href="index.html#quote" class="btn-gold inline-block">Inquire</a>
-        </div>
-      `;
-      blogList.appendChild(card);
-    });
-  </script>
+<!-- Hero Section -->
+<section class="h-64 flex items-center justify-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <h1 class="text-4xl md:text-6xl font-bold relative z-10">Tips & Blog</h1>
+</section>
+
+<!-- Blog Cards Section -->
+<section class="py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Latest Blog Posts</h2>
+  <div id="blog-container" class="grid md:grid-cols-2 gap-8"></div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-[#1C1C1C] text-white text-center py-6">
+  <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
+  <div class="mt-2 space-x-4">
+    <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+    <a href="terms.html" class="hover:underline">Terms & Conditions</a>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="blogs.js"></script>
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  // Display latest 4 blog posts
+  const container = document.getElementById('blog-container');
+  const latestBlogs = blogs.slice(0, 4); // get first 4 posts
+
+  latestBlogs.forEach(blog => {
+    const card = document.createElement('div');
+    card.className = "card p-6";
+
+    card.innerHTML = `
+      <span class="category-badge">${blog.category.charAt(0).toUpperCase() + blog.category.slice(1)}</span>
+      <h3 class="text-xl font-bold mb-2">${blog.title}</h3>
+      <p class="mb-4">${blog.content[0].substring(0, 120)}...</p>
+      <a href="blog-post.html?id=${blog.id}" class="btn-gold inline-block">Read More</a>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+
 </body>
 </html>

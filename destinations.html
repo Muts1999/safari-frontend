@@ -1,37 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="default">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Destinations - Safari Diaries by Sammy</title>
+  <title>Destinations - Safari Adventures</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { padding-top: 80px; font-family: 'Lato', sans-serif; background: #FAF9F6; color: #1C1C1C; }
-
-    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
-
-    /* Buttons & Hover Effects */
-    .btn-gold { background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.75rem 1.5rem; border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.25); }
-
-    .card { background: white; border-radius: 1rem; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+    .card { background: white; border-radius: 1rem; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-
-    /* Animations */
-    @keyframes zoomIn { from { transform: scale(1.1); } to { transform: scale(1); } }
-    .animate-zoom { animation: zoomIn 5s ease forwards; }
-
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .animate-fadeIn { animation: fadeIn 2s ease forwards; }
-
-    /* Filter buttons */
-    .filter-btn { border: 1px solid #C5A572; padding: 0.5rem 1rem; border-radius: 9999px; cursor: pointer; transition: all 0.2s; }
-    .filter-btn:hover { background-color: #C5A572; color: white; }
-    .filter-btn.active { background-color: #C5A572; color: white; }
-
-    .theme-accent { color: #C5A572; font-weight: 600; }
+    .btn-gold { background: linear-gradient(135deg, #C5A572, #8C6A43); color: white; padding: 0.5rem 1rem; border-radius: 9999px; font-weight: 600; transition: all 0.3s ease; }
+    .btn-gold:hover { background: linear-gradient(135deg, #D4AF37, #A9865C); transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -40,65 +22,72 @@
 <header class="fixed top-0 left-0 w-full bg-white shadow z-50">
   <div class="container mx-auto flex justify-between items-center p-4">
     <a href="index.html#home"><img src="Images/logo.png" alt="Logo" class="h-10 w-auto"></a>
-
     <nav class="hidden md:flex space-x-6 font-medium">
       <a href="index.html#home" class="hover:text-yellow-700">Home</a>
-      
-      <a href="destinations.html" class="hover:text-yellow-700">Destinations</a>
+      <a href="#destinations" class="hover:text-yellow-700">Destinations</a>
       <a href="index.html#faq" class="hover:text-yellow-700">FAQ</a>
       <a href="tips-blog.html" class="hover:text-yellow-700">Tips & Blog</a>
       <a href="index.html#quote" class="btn-gold">Get a Quote</a>
     </nav>
-
     <button id="menu-btn" class="md:hidden text-2xl">&#9776;</button>
   </div>
-
   <div id="mobile-menu" class="hidden flex-col space-y-2 px-4 pb-4 bg-white shadow md:hidden">
     <a href="index.html#home" class="block hover:text-yellow-700">Home</a>
-    
-    <a href="destinations.html" class="block hover:text-yellow-700">Destinations</a>
+    <a href="#destinations" class="block hover:text-yellow-700">Destinations</a>
     <a href="index.html#faq" class="block hover:text-yellow-700">FAQ</a>
     <a href="tips-blog.html" class="block hover:text-yellow-700">Tips & Blog</a>
     <a href="index.html#quote" class="block text-center btn-gold">Get a Quote</a>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="h-64 flex items-center justify-center text-white relative" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
-  <div class="absolute inset-0 bg-black bg-opacity-50 animate-zoom"></div>
-  <h1 class="text-4xl font-bold relative z-10 animate-fadeIn">Explore Our Destinations</h1>
+<!-- Hero Section -->
+<section class="h-64 flex items-center justify-center text-white relative overflow-hidden" style="background: url('Images/Background.jpg') no-repeat center center/cover;">
+  <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+  <h1 class="text-4xl md:text-6xl font-bold relative z-10">Explore Destinations</h1>
 </section>
 
-<!-- Filter Buttons -->
-<section class="container mx-auto px-4 mt-8">
-  <div class="flex flex-wrap gap-4 justify-center">
-    <button class="filter-btn active" data-category="all">All</button>
-    <button class="filter-btn" data-category="kenya">Kenya</button>
-    <button class="filter-btn" data-category="tanzania">Tanzania</button>
-  </div>
-</section>
-
-<!-- Destinations List -->
-<section class="py-16 container mx-auto px-4">
-  <div id="destination-list" class="grid md:grid-cols-3 gap-8"></div>
+<!-- Destinations Section -->
+<section id="destinations" class="py-16 container mx-auto px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">Our Destinations</h2>
+  <div id="destinations-container" class="grid md:grid-cols-3 gap-8"></div>
 </section>
 
 <!-- Footer -->
 <footer class="bg-[#1C1C1C] text-white text-center py-6">
-  <p>&copy; 2025 Safari Diaries by Sammy. All Rights Reserved.</p>
+  <p>&copy; 2025 Safari Adventures. All Rights Reserved.</p>
   <div class="mt-2 space-x-4">
-    <a href="privacy.html" class="text-400 hover:underline">Privacy Policy</a>
-    <a href="terms.html" class="text-400 hover:underline">Terms & Conditions</a>
+    <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+    <a href="terms.html" class="hover:underline">Terms & Conditions</a>
   </div>
 </footer>
 
 <!-- Scripts -->
 <script src="destinations.js"></script>
 <script>
-  // Mobile menu toggle
   const menuBtn = document.getElementById('menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-  menuBtn.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+  const container = document.getElementById('destinations-container');
+
+  destinations.forEach(dest => {
+    const card = document.createElement('div');
+    card.className = "card overflow-hidden";
+
+    card.innerHTML = `
+      <img src="${dest.image}" alt="${dest.title}" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="text-xl font-bold mb-2">${dest.title}</h3>
+        <p class="mb-2"><strong>Location:</strong> ${dest.location}</p>
+        <p class="mb-2">${dest.description}</p>
+        <p class="mb-2"><strong>Best Time to Visit:</strong> ${dest.bestTime}</p>
+        <p class="mb-2"><strong>Highlights:</strong> ${dest.highlights.join(", ")}</p>
+        <a href="tips-blog.html" class="btn-gold mt-2 inline-block">Inquire</a>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
 </script>
 
 </body>
